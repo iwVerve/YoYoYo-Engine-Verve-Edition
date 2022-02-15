@@ -1,0 +1,18 @@
+The process of adding new configurable controls has been streamlined. The script scrControls holds every block of code
+you need to add a line to in order to add a new key. This includes adding a new value to the key enum, and 8 lines to
+the various blocks in the switch afterwards, handling loading, saving, getting the name and reseting to default,
+times two for controller binds.
+
+The button arrays have been condensed into one global.controls array, and instead of array names you now use a key enum.
+scrButtonCheckPressed(global.shootButton) would now be scrButtonCheckPressed(KEY.SHOOT). For a list of the key names,
+check scrControls.
+
+
+
+The options system has been replaces entirely with the modular option scripts taken straight out of renex engine. Each
+option gets its own script in the Options folder, and scrOptionsList then holds a list of all of those options. You can
+use any of the scripts for reference as to how they work, and a template is provided for making a new one.
+
+If you for example want a new global variable that you can switch on and off in the options, you can copy optSmoothing
+and edit it to fit your variable. Then all you need is to add the option to scrOptionsList, and add the variable to
+scrSave/LoadConfig so it actually saves.

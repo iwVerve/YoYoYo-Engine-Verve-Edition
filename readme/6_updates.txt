@@ -1,0 +1,10 @@
+The engine features version checking, similar to the one in jTool (on which I in fact based the code). By default it is
+disabled in scrSetGlobalOptions. There, you can link to a raw text file, most easily on pastebin or GitHub. You will need
+access to edit this file later, so if you're using pastebin make sure you have an account.
+
+The version name is a string, and the game only considers an exact match the up to date version. If the file ever link
+gets broken or in any way taken down, the rest of the game will still function properly as if update checks were disabled.
+
+If you check the example pastebin file (https://pastebin.com/raw/Z5sWFNap), you'll notice it's only the raw text instead
+if anything looking like an actual website. This is important! To access the raw text, you can click the "Raw" button on
+either pastebin or GitHub.

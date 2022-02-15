@@ -1,0 +1,9 @@
+Saving and loading file data works roughly the same as it did in YoYoYo, however the process has been simplified and
+hopefully cleaned up a bit, now you only have to add 1 line to save your variables and 1 to load it, halving the amount
+of steps needed previously. In scrSaveGame, add code at the bottom of the big if block, and in scrLoadGame add code
+near the very bottom, simply by following how the other variables are saved. The order of the lines doesn't matter much,
+and there are comments telling you where to put the code so the should be nothing to worry about.
+
+If you want to save a variable without actually saving the game, e.g. saving a secret item immediately after it's picked
+up, in the item object you would set both the global.secretItem[0] as well as global.saveMap[? "secretItem0"], and then
+call scrSaveGame(false). This will save the item even if the player restarts immediately.

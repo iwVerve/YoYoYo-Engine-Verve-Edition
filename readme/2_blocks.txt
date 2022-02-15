@@ -1,0 +1,8 @@
+TL;DR: This engine changes how block collision works, but you shouldn't need to use it much differently from what you're
+used to. Mark blocks as solid and give them objBlock as parent.
+
+For the player to collide with blocks, they now only need to be marked solid, it is no longer tied to objBlock specifically
+in any way. However, such a generalization could not have been made for the blood splatter, which checks for objBlock
+specifically, hence why it's useful to have all other solids keep objBlock as parent.
+
+The blood specifically sticks to any object in the array set in its Create code.

@@ -1,0 +1,61 @@
+# World, menus:
+* Added dynamic blocks, hopefully just as capable as betterblocks. (thx random)
+* Added optional update checking.
+* Merged the global save values and the savemap into one ds_map, halving the amount of steps needed to add a new saved variable.
+* Streamlined the process of adding a new rebindable key by moving all related blocks of code into the same script.
+* Remade the options menu using option scripts (thx renex!!)
+* Made options accessible from the pause screen.
+* Merged objCamera and objSmoothCamera, made smooth camera less stupid, allowed for a smooth but screenlocked camera etc.
+* Fixed smoothing mode drawing of stretched sprites.
+* Fixed transparent objects appearing darker when the game is paused.
+* Set text h/valign and color in places where it wasn't previously.
+* Made the player die normally in the difficulty select room instead of immediately restarting the room.
+* Added a global setting to stop the timer after game clear. (thx anxkha)
+* The amount of difficulties and their names can now be changed in scrSetGlobalOptions.
+
+# Player:
+* Made blood stick to killers as well as blocks, and made it follow moving and spinning objects.
+* Made objBlock no longer a necessary part of solid collision to function, any object being solid is now enough. This
+allows easy change of an instance's solid status, e.g. green pastel water, and prevents object order issues.
+* Put the killer collision check in End Step, further preventing object order issues.
+* Saved the direction the player is facing.
+* Made screen border only kill once the player is entirely off-screen.
+* Drew the player at a rounded x/y value to prevent the .5 align visual jank.
+* Fixed the jump script checking for water1 collision 1 pixel lower than it should've. (thx kiyo)
+* Made bullets check for save blocker collision when created instead of only after a frame of movement (optional). (thx anxkha)
+* Moved the autosave code to room start - using global.autosave works even if the Player isn't destroyed before a room transition.
+* Renamed the running and sliding sprites to run and slide to be more consistent with other sprites.
+
+# Platforms:
+* Merged platform objects.
+* Made platform snapping consistent and optional. (thx gab)
+* Made platforms not catch the player back up when trying to walk off and turn around right away.
+* Made platforms squish (kill) the player instead of sudoku phasing them into a ceiling (optional).
+* Made platforms not move the player unless they're actually standing on top of them.
+* Fixed platforms for different player masks, e.g. dotkid.
+* Platforms no longer inherit from objBlock, meaning they no longer block bullets. (thx anxkha)
+
+# Triggers:
+* Made general trigger system - removed trigger variants of objects, added script to make any object triggerable.
+* Allowed multiple triggers per instace.
+* Added a delay option to triggers, allowing for one trigger to activate multiple chained actions.
+* Added 1. Move to point 2. Follow path 3. Set gravity 4. Stretch 5. Fade in/out 6. Play sound, some of which have
+easing options available and some of which you can combine together. (thx nick!!)
+* Made trigger array into a map, meaning you can use strings as trigger ids as well.
+* Added a key variable for triggers - the trigger is locked until the key trigger gets triggered first.
+* Added mirrored buttons. (thx anxkha)
+
+# Misc:
+* Renamed walljumps to vines, slideblocks to conveyors, and slipblocks to ice blocks.
+* Removed rSampleRoom because it's just an rTemplate prequel?
+* Merged objWarpAutosaveNext, now any warp can autosave, added position offset arguments to objOutsideRoomChanger
+so rooms don't have to be perfectly aligned.
+* Shortened "smoothTransition" to "smooth".
+* Made signs draw outlined text by default.
+* Made new sample rooms, trying to use every feature and focus on the new/changed aspects.
+* Minor code formatting changes to please me personally (spaced out arguments and math), hopefully applied
+consistently across the whole project.
+* Despite non-insignificant changes to save/load code, I Wanna Play Online somehow still works. (thx pat)
+* Included GMSched in the project.
+
+In addition to the above thanks, renex provided a lot of code consultation for the project, as did many others in the IWC #gamemaking channel.

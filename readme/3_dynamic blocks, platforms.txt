@@ -1,0 +1,14 @@
+Dynamic blocks are this engine's equivalent of RandomFangamer's betterblocks. They will simply push and carry the player
+around when moved and scaled. You can additionally make any object affected by dynamic blocks using the script
+scrDynamicCollision, placing it once in Create and once in End Step. Look in the script for instructions or the player
+object for an example.
+
+Platforms have a new snap variable. By default, you always get snapped when jumping through one, compared to the former
+snap which happened most of the time depending on how the vstrings felt. Setting snap to false will make that platform
+never snap.
+
+The global game settings feature two related options:
+platformsPhase - Sets whether platforms let the player fall through when pushing them against a ceiling, or whether they
+get pushed into it. This would then either kill the player or leave them stuck depending on the other setting.
+blocksCrush - Sets whether dynamic blocks and platforms crush the player when pushing them against a wall, otherwise
+leaving them stuck in the block.
