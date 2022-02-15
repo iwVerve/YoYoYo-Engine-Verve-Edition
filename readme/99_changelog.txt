@@ -1,4 +1,4 @@
-1.02
+1.02 (2022/02/15) https://github.com/iwVerve/YoYoYo-Engine-Verve-Edition
 Remade trigger code into individual trigger scripts.
 Added rotate and script triggers.
 Fixed the possibility to temporarily clip into a block after unpausing, hitting triggers and such. (thx cloud)
