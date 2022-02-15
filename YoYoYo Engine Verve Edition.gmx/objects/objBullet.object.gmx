@@ -31,6 +31,14 @@
     exit;
 }
 
+with(objTriggerButtonR)
+{
+    if (place_meeting(x, y, other))
+    {
+        event_user(0);
+    }
+}
+
 //Get the bullet's direction based off the direction the player is facing
 var bulletDir;
 if (instance_exists(objPlayer))

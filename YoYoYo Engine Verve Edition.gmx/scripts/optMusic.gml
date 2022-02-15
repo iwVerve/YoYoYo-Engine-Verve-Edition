@@ -14,7 +14,7 @@ switch(argument0)
         {
             //Switch option
             scrToggleMusic();
-            audio_play_sound(sndJump, 0, false);
+            audio_play_sound(global.menuSound, 0, false);
         }
         break;
         

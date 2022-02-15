@@ -3,6 +3,14 @@
 
 scrSetGlobalOptions();
 
+global.debugOverlay = false;    //Enables showing the debug text overlay (shows player location, align, etc.)
+global.debugNoDeath = false;    //Enables god mode (toggle with Home key)
+global.debugInfJump = false;    //Enables infinite jump (toggle with End key)
+global.debugShowHitbox = false; //Enables showing the player's hitbox (toggle with Del key)
+
+global.roomCaptionLast = global.roomCaptionDef;
+window_set_caption(global.roomCaptionDef);
+
 global.saveMap = ds_map_create();
 
 global.savenum = 1;

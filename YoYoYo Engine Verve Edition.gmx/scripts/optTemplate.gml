@@ -18,7 +18,7 @@ switch(argument0)
         if (scrButtonCheckPressed(KEY.MENU_ACCEPT) || scrButtonCheckPressed(KEY.MENU_LEFT) || scrButtonCheckPressed(KEY.MENU_RIGHT))
         {
             //Switch option
-            audio_play_sound(sndJump, 0, false);
+            audio_play_sound(global.menuSound, 0, false);
         }
         var h = scrButtonCheck(KEY.MENU_RIGHT) - scrButtonCheck(KEY.MENU_LEFT);
         if (h != 0)

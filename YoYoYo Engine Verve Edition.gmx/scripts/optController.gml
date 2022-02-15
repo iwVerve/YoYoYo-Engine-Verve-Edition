@@ -13,7 +13,7 @@ switch(argument0)
         //Called every frame the option is selected
         if (scrButtonCheckPressed(KEY.MENU_ACCEPT))
         {
-            audio_play_sound(sndJump, 0, false);
+            audio_play_sound(global.menuSound, 0, false);
             scrSaveConfig(); //Save changes
             global.menuSelectPrev[1] = select;
             instance_create(x, y, objControllerMenu);

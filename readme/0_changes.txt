@@ -12,6 +12,7 @@
 * Made the player die normally in the difficulty select room instead of immediately restarting the room.
 * Added a global setting to stop the timer after game clear. (thx anxkha)
 * The amount of difficulties and their names can now be changed in scrSetGlobalOptions.
+* Reorganized scrGlobalOptions into more structured categories.
 
 # Player:
 * Made blood stick to killers as well as blocks, and made it follow moving and spinning objects.
@@ -25,6 +26,7 @@ allows easy change of an instance's solid status, e.g. green pastel water, and p
 * Made bullets check for save blocker collision when created instead of only after a frame of movement (optional). (thx anxkha)
 * Moved the autosave code to room start - using global.autosave works even if the Player isn't destroyed before a room transition.
 * Renamed the running and sliding sprites to run and slide to be more consistent with other sprites.
+* Added a global setting to spawn bullets 3px higher to be more accurate to where the gun actually is.
 
 # Platforms:
 * Merged platform objects.
@@ -44,6 +46,7 @@ easing options available and some of which you can combine together. (thx nick!!
 * Made trigger array into a map, meaning you can use strings as trigger ids as well.
 * Added a key variable for triggers - the trigger is locked until the key trigger gets triggered first.
 * Added mirrored buttons. (thx anxkha)
+* Added an extra check so buttons get pressed even if the player is against a wall. (thx anxkha)
 
 # Misc:
 * Renamed walljumps to vines, slideblocks to conveyors, and slipblocks to ice blocks.

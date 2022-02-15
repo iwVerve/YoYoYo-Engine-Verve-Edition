@@ -558,9 +558,12 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fDefault12);
 
-if (!global.isUpToDate &amp;&amp; !global.gameStarted)
+if (!global.gameStarted)
 {
-    scrDrawTextOutline(34, 34, updateString, c_white, c_black);
+    if (!global.isUpToDate)
+    {
+        scrDrawTextOutline(34, 34, updateString, c_white, c_black);
+    }
 }
 else if (global.debugOverlay)
 {
@@ -676,36 +679,6 @@ if (global.gamePaused)
             event_perform(ev_draw, 0);
         }
     }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw debug mode text when we're on the title screen
-
-if (global.debugMode &amp;&amp; room == rTitle)
-{
-    draw_set_font(fDefault24);
-    draw_set_halign(fa_right);
-    draw_set_valign(fa_top);
-    
-    scrDrawTextOutline(766, 34, "Debug mode", c_red, c_black);
 }
 </string>
           </argument>

@@ -15,7 +15,7 @@ switch(argument0)
         {
             //Switch option
             global.smoothingMode = !global.smoothingMode;
-            audio_play_sound(sndJump, 0, false);
+            audio_play_sound(global.menuSound, 0, false);
         }
         break;
         

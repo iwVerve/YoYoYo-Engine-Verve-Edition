@@ -16,7 +16,7 @@ switch(argument0)
             //Switch option
             global.fullscreenMode = !global.fullscreenMode;
             window_set_fullscreen(global.fullscreenMode);
-            audio_play_sound(sndJump, 0, false);
+            audio_play_sound(global.menuSound, 0, false);
         }
         break;
         
