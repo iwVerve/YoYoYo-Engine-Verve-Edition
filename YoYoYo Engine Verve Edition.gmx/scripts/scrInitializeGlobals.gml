@@ -76,4 +76,8 @@ global.isUpToDate = true;
 global.options = ds_list_create();
 scrOptionsList();
 
+global.makingTrigger = false;
+global.triggers = ds_list_create();
+scrTriggerList();
+
 randomize();    //Make sure the game starts with a random seed for RNG

@@ -1,8 +1,16 @@
+1.02
+Remade trigger code into individual trigger scripts.
+Added rotate and script triggers.
+Fixed the possibility to temporarily clip into a block after unpausing, hitting triggers and such. (thx cloud)
+Fixed boss items not showing on the save select screen. (thx nader)
+Fixed the pause screen volume setting being uncapped. (thx blasted)
+Fixed crash related to unpausing with objPlayMusic in the room (thx egg)
+
 1.01 (2022/02/08) https://www.mediafire.com/file/luhtilkdskzku68/
 Moved debug mode display code to objTitleMenu. (thx chrisay)
-Fixed walls eating bullets preventing buttons from being pressed. (thx anxkha)
 Reorganized global options.
 Added global.fixBulletHeight.
+Fixed walls eating bullets preventing buttons from being pressed. (thx anxkha)
 Fixed uses of sndJump in menu code where it should've been global.menuSound.
 
 1.0 (2022/02/05) https://www.mediafire.com/file/gkt4us24d67kpsh/

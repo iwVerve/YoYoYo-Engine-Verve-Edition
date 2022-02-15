@@ -282,15 +282,10 @@ if !(triggered &amp;&amp; delay == -1) //Follow assigned instance until the trig
     x = inst.x;
     y = inst.y;
     
-    if (scrUsesTrigger(trgStretch))
+    if (ds_list_find_index(doTriggers, trgStretch) != -1)
     {
         image_xscale = inst.image_xscale;
         image_yscale = inst.image_yscale;
-    }
-    
-    if (scrUsesTrigger(trgRotate))
-    {
-        image_angle = inst.image_angle;
     }
 }
 else //Move assigned instance to own position
@@ -301,7 +296,7 @@ else //Move assigned instance to own position
         inst.vspeed = y - inst.y;
     }
     
-    if (scrUsesTrigger(trgFade))
+    if (ds_list_find_index(doTriggers, trgFade) != -1)
     {
         inst.image_alpha = image_alpha;
         if (fadeType == "in")
@@ -310,7 +305,7 @@ else //Move assigned instance to own position
         }
     }
     
-    if (scrUsesTrigger(trgStretch))
+    if (ds_list_find_index(doTriggers, trgStretch) != -1)
     {
         if (!is_undefined(xscale))
         {
@@ -320,11 +315,6 @@ else //Move assigned instance to own position
         {
             inst.image_yscale = image_yscale;
         }
-    }
-    
-    if (scrUsesTrigger(trgRotate))
-    {
-        inst.image_angle = image_angle;
     }
 }
 </string>

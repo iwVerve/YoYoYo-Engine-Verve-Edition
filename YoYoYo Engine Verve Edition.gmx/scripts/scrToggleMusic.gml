@@ -15,8 +15,8 @@ if (!global.muteMusic)
         {
             with (objPlayMusic)
             {
-                if (BGM != -2)
-                    scrPlayMusic(BGM, true);
+                if (roomSong != -2)
+                    scrPlayMusic(roomSong, true);
             }
         }
     }

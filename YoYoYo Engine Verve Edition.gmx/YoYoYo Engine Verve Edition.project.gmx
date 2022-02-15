@@ -178,6 +178,22 @@
       <script>scripts\scrKillPlayer.gml</script>
       <script>scripts\scrFlipGrav.gml</script>
     </scripts>
+    <scripts name="Trigger">
+      <script>scripts\scrMakeTrigger.gml</script>
+      <script>scripts\scrUsesTrigger.gml</script>
+      <script>scripts\scrTriggerList.gml</script>
+      <script>scripts\trgTemplate.gml</script>
+      <script>scripts\trgMove.gml</script>
+      <script>scripts\trgMoveDir.gml</script>
+      <script>scripts\trgMoveTo.gml</script>
+      <script>scripts\trgPath.gml</script>
+      <script>scripts\trgGravity.gml</script>
+      <script>scripts\trgSound.gml</script>
+      <script>scripts\trgFade.gml</script>
+      <script>scripts\trgStretch.gml</script>
+      <script>scripts\trgRotate.gml</script>
+      <script>scripts\trgScript.gml</script>
+    </scripts>
     <scripts name="Controls">
       <script>scripts\scrControls.gml</script>
       <script>scripts\scrAnyControllerButton.gml</script>
@@ -195,11 +211,11 @@
       <script>scripts\scrTernary.gml</script>
       <script>scripts\scrMakeShapes.gml</script>
       <script>scripts\scrMakeCircle.gml</script>
-      <script>scripts\scrMakeTrigger.gml</script>
       <script>scripts\scrEaseValue.gml</script>
       <script>scripts\scrFormat.gml</script>
     </scripts>
   </scripts>
+  <shaders name="shaders"/>
   <fonts name="fonts">
     <font>fonts\fDefault30</font>
     <font>fonts\fDefault24</font>

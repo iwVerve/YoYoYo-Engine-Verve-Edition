@@ -84,7 +84,7 @@ for (var i = 0; i &lt; 3; i++)
             
             for (var j = 0; j &lt; 8; j++)
             {
-                boss[j,i] = saveMap[? "saveBossItem[" + string(j) + "]"];
+                boss[j,i] = saveMap[? "bossItem" + string(j) + ""];
                 if (is_undefined(boss[j, i]))
                 {
                     boss[j,i] = false;

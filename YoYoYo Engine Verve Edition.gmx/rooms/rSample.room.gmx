@@ -225,8 +225,8 @@
     <instance objName="objBlock" x="160" y="416" name="inst_DD1FCA7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="160" y="384" name="inst_31C36B28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="224" y="512" name="inst_DB5F5001" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="336" y="560" name="inst_A350CF0B" locked="0" code="with(scrMakeTrigger(&quot;m9 3&quot;))&#xA;{&#xA;    fadeType = &quot;in&quot;;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objBlockInvis" x="224" y="544" name="inst_0FE99042" locked="0" code="with(scrMakeTrigger(&quot;m9 2&quot;))&#xA;{&#xA;    fadeType = &quot;out&quot;;&#xA;    sound = sndBlockChange;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="336" y="560" name="inst_A350CF0B" locked="0" code="with(scrMakeTrigger(&quot;m9 3&quot;))&#xA;{&#xA;    trgFade(&quot;in&quot;);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBlockInvis" x="224" y="544" name="inst_0FE99042" locked="0" code="with(scrMakeTrigger(&quot;m9 2&quot;))&#xA;{&#xA;    trgFade(&quot;out&quot;);&#xA;    trgSound(sndBlockChange);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="241" y="544" name="inst_EFD11827" locked="0" code="trg = &quot;m9 1&quot;;&#xA;" scaleX="0.5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSaveVHard" x="480" y="448" name="inst_0DE1E252" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="448" y="352" name="inst_EB72CAA1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -284,11 +284,11 @@
     <instance objName="objBlock" x="384" y="224" name="inst_6A347DBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="416" y="224" name="inst_F6402658" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="448" y="224" name="inst_9DE04498" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeDown" x="320" y="256" name="inst_DB1D8561" locked="0" code="with(scrMakeTrigger(&quot;fangs&quot;))&#xA;{&#xA;    yscale = 3;&#xA;    scaleTime = 10;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeDown" x="320" y="256" name="inst_DB1D8561" locked="0" code="with(scrMakeTrigger(&quot;fangs&quot;))&#xA;{&#xA;    trgStretch(1, 3, 10);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikeDown" x="352" y="256" name="inst_8E37931C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikeDown" x="384" y="256" name="inst_24C2A5ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikeDown" x="416" y="256" name="inst_BBEC42F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeDown" x="448" y="256" name="inst_EE28DFA0" locked="0" code="with(scrMakeTrigger(&quot;fangs&quot;))&#xA;{&#xA;    yscale = 3;&#xA;    scaleTime = 10;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeDown" x="448" y="256" name="inst_EE28DFA0" locked="0" code="with(scrMakeTrigger(&quot;fangs&quot;))&#xA;{&#xA;    trgStretch(1, 3, 10);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="384" y="256" name="inst_79DA2CBF" locked="0" code="trg = &quot;fangs&quot;;&#xA;sound = sndBlockChange;&#xA;destroy = true;" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="320" y="192" name="inst_00EEE78C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="352" y="192" name="inst_C1C91C67" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -348,7 +348,7 @@
     <instance objName="objBlock" x="736" y="64" name="inst_147E3267" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="704" y="64" name="inst_0DDFFF9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="672" y="64" name="inst_02DF9E4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeDown" x="544" y="160" name="inst_9A48DF2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeDown" x="544" y="160" name="inst_9A48DF2C" locked="0" code="with(scrMakeTrigger(&quot;rotate&quot;))&#xA;{&#xA;    trgRotate(-360, 7);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="544" y="32" name="inst_0711F546" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="544" y="64" name="inst_257DC980" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="544" y="96" name="inst_A81B0D83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -427,8 +427,8 @@
     <instance objName="objWater2" x="1440" y="320" name="inst_A1CEFBE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWater2" x="1408" y="320" name="inst_6CBCAD0D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="1536" y="352" name="inst_EE656E44" locked="0" code="trg = &quot;poke&quot;;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeLeft" x="1568" y="352" name="inst_FD703F55" locked="0" code="with(scrMakeTrigger(&quot;poke&quot;))&#xA;{&#xA;    xto = x - 32;&#xA;    yto = y;&#xA;    spd = 2;&#xA;    movetoEase = &quot;out&quot;;&#xA;}&#xA;depth = 1100000;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeLeft" x="1568" y="384" name="inst_AFBEE9D3" locked="0" code="with(scrMakeTrigger(&quot;poke&quot;))&#xA;{&#xA;    xto = x - 32;&#xA;    yto = y;&#xA;    spd = 2;&#xA;    movetoEase = &quot;out&quot;;&#xA;}&#xA;depth = 1100000;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeLeft" x="1568" y="352" name="inst_FD703F55" locked="0" code="with(scrMakeTrigger(&quot;poke&quot;))&#xA;{&#xA;    trgMoveTo(-32, 0, 2, &quot;out&quot;, true);&#xA;}&#xA;depth = 1100000;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeLeft" x="1568" y="384" name="inst_AFBEE9D3" locked="0" code="with(scrMakeTrigger(&quot;poke&quot;))&#xA;{&#xA;    trgMoveTo(-32, 0, 2, &quot;out&quot;, true);&#xA;}&#xA;depth = 1100000;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="1248" y="256" name="inst_F3863570" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="1248" y="224" name="inst_73B9C776" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="1248" y="192" name="inst_ADB24AF7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -588,8 +588,8 @@
     <instance objName="objWarp" x="1024" y="64" name="inst_79951C93" locked="0" code="roomTo = rMiku;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikeDown" x="1312" y="160" name="inst_B55E08D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="1312" y="160" name="inst_0430D30B" locked="0" code="trg = &quot;fruit&quot;;&#xA;" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="1296" y="144" name="inst_234DF4AD" locked="0" code="with(scrMakeTrigger(&quot;fruit&quot;))&#xA;{&#xA;    v = 5;&#xA;    sound = sndCherry;&#xA;}&#xA;depth = 1100000;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="1360" y="144" name="inst_76A8564C" locked="0" code="with(scrMakeTrigger(&quot;fruit&quot;))&#xA;{&#xA;    v = 5;              &#xA;}&#xA;depth = 1100000;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="1296" y="144" name="inst_234DF4AD" locked="0" code="with(scrMakeTrigger(&quot;fruit&quot;))&#xA;{&#xA;    trgMove(0, 5); &#xA;    trgSound(sndCherry, 1);&#xA;}&#xA;depth = 1100000;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="1360" y="144" name="inst_76A8564C" locked="0" code="with(scrMakeTrigger(&quot;fruit&quot;))&#xA;{&#xA;    trgMove(0, 5);&#xA;}&#xA;depth = 1100000;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSave" x="1024" y="96" name="inst_A1B20AFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSlopeDownRight" x="384" y="128" name="inst_869D6DEB" locked="0" code="visible = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSlopeDownRight" x="416" y="96" name="inst_52974CDD" locked="0" code="visible = true;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -601,27 +601,28 @@
     <instance objName="objSlopeUpRight" x="1440" y="32" name="inst_A3336032" locked="0" code="visible = true;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="objWarp" x="576" y="32" name="inst_E372D5D3" locked="0" code="roomTo = rTest;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="352" y="544" name="inst_8377030F" locked="0" code="trg = &quot;m9 2&quot;;&#xA;key = &quot;m9 1&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objBlockInvis" x="224" y="544" name="inst_C9A77E37" locked="0" code="with(scrMakeTrigger(&quot;m9 2&quot;))&#xA;{&#xA;    fadeType = &quot;in&quot;;&#xA;    fadeTime = 1;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBlockInvis" x="224" y="544" name="inst_C9A77E37" locked="0" code="with(scrMakeTrigger(&quot;m9 2&quot;))&#xA;{&#xA;    trgFade(&quot;in&quot;, 1);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="241" y="544" name="inst_13DA56BC" locked="0" code="trg = &quot;m9 3&quot;;&#xA;key = &quot;m9 2&quot;;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="objGravityDown" x="1568" y="544" name="inst_9465E258" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGravityDown" x="1568" y="512" name="inst_6E667F9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objBlockDynamic" x="480" y="512" name="inst_AF9B2954" locked="0" code="with(scrMakeTrigger(&quot;dynamic&quot;))&#xA;{&#xA;    xto = x-64;&#xA;    yto = y;&#xA;    spd = 1;&#xA;    movetoEase = &quot;inout&quot;;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBlockDynamic" x="480" y="512" name="inst_AF9B2954" locked="0" code="with(scrMakeTrigger(&quot;dynamic&quot;))&#xA;{&#xA;    trgMoveTo(-64, 0, 1, &quot;inout&quot;, true);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="416" y="512" name="inst_23896B15" locked="0" code="trg = &quot;dynamic&quot;;&#xA;visible = true;&#xA;destroy = true;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="objPlatformInvisible" x="352" y="480" name="inst_95226793" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objBlockDynamic" x="480" y="544" name="inst_6FA89812" locked="0" code="with(scrMakeTrigger(&quot;dynamic&quot;))&#xA;{&#xA;    xto = x-64;&#xA;    yto = y;&#xA;    spd = 1;&#xA;    movetoEase = &quot;inout&quot;;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="416" y="480" name="inst_69532103" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="512" y="512" name="inst_646D6EE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="512" y="544" name="inst_025A5C7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="512" y="576" name="inst_5B6F74F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="992" y="384" name="inst_99B78D74" locked="0" code="trg = &quot;b&amp;f left&quot;;&#xA;visible = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="1056" y="384" name="inst_2AD526EC" locked="0" code="trg = &quot;b&amp;f right&quot;;&#xA;visible = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="1040" y="368" name="inst_AC35711B" locked="0" code="with(scrMakeTrigger(&quot;b&amp;f left&quot;))&#xA;{&#xA;    triggerOnce = false;&#xA;    &#xA;    xto = x-32;&#xA;    yto = y;&#xA;    spd = 4;&#xA;    movetoEase = &quot;out&quot;;&#xA;}&#xA;&#xA;with(scrMakeTrigger(&quot;b&amp;f right&quot;))&#xA;{&#xA;    triggerOnce = false;&#xA;    &#xA;    xto = x+32;&#xA;    yto = y;&#xA;    spd = 4;&#xA;    movetoEase = &quot;out&quot;;&#xA;}&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="1040" y="368" name="inst_AC35711B" locked="0" code="with(scrMakeTrigger(&quot;b&amp;f left&quot;))&#xA;{&#xA;    triggerOnce = false;&#xA;    trgMoveTo(x-32, y, 4, &quot;out&quot;);&#xA;}&#xA;&#xA;with(scrMakeTrigger(&quot;b&amp;f right&quot;))&#xA;{&#xA;    triggerOnce = false;&#xA;    trgMoveTo(x+32, y, 4, &quot;out&quot;);&#xA;}&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="1120" y="320" name="inst_881DA8C8" locked="0" code="trg = &quot;delayed fruit&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="1168" y="368" name="inst_225846F7" locked="0" code="with(scrMakeTrigger(&quot;delayed fruit&quot;))&#xA;{&#xA;    v = -8;&#xA;    delay = 30;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="880" y="144" name="inst_B6358C5F" locked="0" code="with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    xto = x+32;&#xA;    yto = y;&#xA;    spd = 8;&#xA;}&#xA;&#xA;with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    grav = 0.5;&#xA;    gravdir = 270;&#xA;    delay = 4;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objTrigger" x="864" y="96" name="inst_030C98E6" locked="0" code="visible = true;&#xA;trg = &quot;split and fall&quot;;&#xA;destroy = true;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="880" y="144" name="inst_3336E3FB" locked="0" code="with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    xto = x-32;&#xA;    yto = y;&#xA;    spd = 8;&#xA;}&#xA;&#xA;with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    grav = 0.5;&#xA;    gravdir = 270;&#xA;    delay = 4;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="1168" y="368" name="inst_225846F7" locked="0" code="with(scrMakeTrigger(&quot;delayed fruit&quot;))&#xA;{&#xA;    trgMove(0, -8);&#xA;    delay = 30;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTrigger" x="864" y="128" name="inst_030C98E6" locked="0" code="visible = true;&#xA;trg = &quot;split and fall&quot;;&#xA;destroy = true;&#xA;depth++;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="880" y="144" name="inst_3336E3FB" locked="0" code="with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    trgMoveTo(-32, 0, 8, &quot;none&quot;, true);&#xA;}&#xA;&#xA;with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    trgGravity(0.5, 270);&#xA;    delay = 4;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatform" x="256" y="384" name="inst_46CEA020" locked="0" code="bounce = true;&#xA;vspeed = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="880" y="144" name="inst_3568CB82" locked="0" code="with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    trgMoveTo(32, 0, 8, &quot;none&quot;, true);&#xA;}&#xA;&#xA;with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    trgGravity(0.5, 270);&#xA;    delay = 4;&#xA;}" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBlockDynamic" x="480" y="544" name="inst_3A6E1A81" locked="0" code="with(scrMakeTrigger(&quot;dynamic&quot;))&#xA;{&#xA;    trgMoveTo(-64, 0, 1, &quot;inout&quot;, true);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTrigger" x="448" y="32" name="inst_3DABF577" locked="0" code="trg = &quot;rotate&quot;;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bJumpThrough" x="384" y="480" w="32" h="32" xo="0" yo="0" id="10002439" name="inst_50EF77AB" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

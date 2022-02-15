@@ -169,6 +169,7 @@ if (global.gameStarted)
                 volumeTimer--;
             }
             
+            global.volumeLevel = clamp(global.volumeLevel, 0, 100);
             audio_master_gain(global.volumeLevel / 100);
             
             if (scrButtonCheckPressed(KEY.MENU_OPTIONS))
