@@ -1,10 +1,11 @@
-///trgPath(type/index, [action], [absolute], [position])
+///trgPath(type/index, speed, [action], [absolute], [position])
 //Sets an object to follow a path.
 //Arguments:
 //1. index - the path index to follow.
-//2. [action] - path_action_stop(default)/continue/restart/reverse. Path action to do at the end of the path.
-//3. [absolute] - true (default) if following the absolute position of the path, false if following the path relative to own position.
-//4. [position] - starting position of the path, 0-1. (0 by default)
+//2. speed
+//3. [action] - path_action_stop(default)/continue/restart/reverse. Path action to do at the end of the path.
+//4. [absolute] - true (default) if following the absolute position of the path, false if following the path relative to own position.
+//5. [position] - starting position of the path, 0-1. (0 by default)
 
 if (!global.makingTrigger)
 {
@@ -32,7 +33,8 @@ if (!global.makingTrigger)
 else
 {
     if (argument_count >= 1) { path = argument[0]; }
-    if (argument_count >= 2) { action = argument[1]; }
-    if (argument_count >= 3) { absolute = argument[2]; }
-    if (argument_count >= 4) { position = argument[3]; }
+    if (argument_count >= 2) { spd = argument[1]; }
+    if (argument_count >= 3) { action = argument[2]; }
+    if (argument_count >= 4) { absolute = argument[3]; }
+    if (argument_count >= 5) { position = argument[4]; }
 }
