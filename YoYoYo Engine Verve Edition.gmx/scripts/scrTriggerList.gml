@@ -9,4 +9,5 @@ ds_list_add(global.triggers, trgSound);
 ds_list_add(global.triggers, trgFade);
 ds_list_add(global.triggers, trgStretch);
 ds_list_add(global.triggers, trgRotate);
+ds_list_add(global.triggers, trgUser);
 ds_list_add(global.triggers, trgScript);

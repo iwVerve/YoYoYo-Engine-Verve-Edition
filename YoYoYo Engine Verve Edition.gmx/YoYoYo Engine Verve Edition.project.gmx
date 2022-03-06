@@ -192,6 +192,7 @@
       <script>scripts\trgFade.gml</script>
       <script>scripts\trgStretch.gml</script>
       <script>scripts\trgRotate.gml</script>
+      <script>scripts\trgUser.gml</script>
       <script>scripts\trgScript.gml</script>
     </scripts>
     <scripts name="Controls">
