@@ -71,7 +71,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_yscale = global.grav;
+            <string>image_yscale = abs(image_yscale) * global.grav;
 </string>
           </argument>
         </arguments>
