@@ -232,7 +232,7 @@ for (var i = 0; i &lt; numberOfButtons - 2; i++)
 draw_set_valign(fa_top);
 draw_set_font(fDefault24);
 
-yStart = (room_height - numberOfButtons * yStep)/2;
+yStart = (608 - numberOfButtons * yStep)/2;
 currentSlot = 0;
 
 for(var i = 0; i &lt; numberOfButtons; i += 1)

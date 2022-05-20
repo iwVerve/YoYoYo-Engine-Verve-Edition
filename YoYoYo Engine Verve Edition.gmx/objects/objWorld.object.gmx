@@ -257,12 +257,14 @@ if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused
     
     if (keyboard_check_pressed(vk_pageup) &amp;&amp; room != room_last)    //Go to next room
     {        
+        global.noPause = false;
         instance_destroy(objPlayer);
         room_goto_next();
     }
     
     if (keyboard_check_pressed(vk_pagedown) &amp;&amp; room != room_first)    //Go to previous room
     {
+        global.noPause = false;
         instance_destroy(objPlayer);
         room_goto_previous();
     }

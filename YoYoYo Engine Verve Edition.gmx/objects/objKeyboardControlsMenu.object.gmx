@@ -225,7 +225,7 @@ for (var i = 0; i &lt; numberOfKeys - 1; i++)
 draw_set_color(scrTernary(!global.gameStarted, c_black, c_white));
 draw_set_font(fDefault24);
 
-yStart = (room_height - numberOfKeys * yStep) / 2;
+yStart = (608 - numberOfKeys * yStep) / 2;
 
 currentSlot = 0;
 for(var i = 0; i &lt; numberOfKeys; i++)

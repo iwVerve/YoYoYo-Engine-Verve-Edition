@@ -129,7 +129,7 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fDefault30);
 
-yStart = (room_height - numberOfOptions * yStep)/2;
+yStart = (608 - numberOfOptions * yStep)/2;
 currentSlot = 0;
 
 for (var i = 0; i &lt; numberOfOptions; i++)

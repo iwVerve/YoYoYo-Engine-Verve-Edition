@@ -252,6 +252,7 @@ global.noPause = true;  //make it so that the player can't pause during the boss
             a.itemNum = 0;
         }
         
+        global.noPause = false;
         instance_destroy();
     }
 }
