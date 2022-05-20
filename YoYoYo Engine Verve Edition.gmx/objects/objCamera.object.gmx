@@ -2,7 +2,7 @@
 <object>
   <spriteName>sprCamera</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,13 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>leaveRoom = false;  //Sets whether the camera can follow the player outside of the room's boundaries
+            <string>leaveRoom = false; //Sets whether the camera can follow the player outside of the room's boundaries
 screenLock = true; //Whether to snap to screen borders or whether to follow the player
+screenWidth = 800; //Used with screenLock
+screenHeight = 608;
 smoothLerp = 1; //How fast the smooth camera follows the player. (0-1, 1 = instant camera)
+zoomFactor = 1; //&gt;1 = zoomed in, &lt;1 = zoomed out
 
 init = false;
 targetX = 0;
-targetY = 0;        
+targetY = 0;
 </string>
           </argument>
         </arguments>
@@ -80,26 +83,34 @@ event_user(0);
             <kind>1</kind>
             <string>///Move camera
 
+if (zoomFactor == 0) zoomFactor = 1;  //Don't divide by 0
+
+var targetW = 800 / zoomFactor;
+var targetH = 608 / zoomFactor;
+
 if(instance_exists(objPlayer))
 {
+
     if (screenLock)
     {
-        targetX = view_wview[0] * floor(objPlayer.x / view_wview[0]);
-        targetY = view_hview[0] * floor(objPlayer.y / view_hview[0]);
+        var leftEdge = screenWidth * floor(objPlayer.x / screenWidth);
+        targetX = clamp(objPlayer.x - targetW / 2, leftEdge, leftEdge + screenWidth - targetW);
+        var topEdge = screenHeight * floor(objPlayer.y / screenHeight);
+        targetY = clamp(objPlayer.y - targetH / 2, topEdge, topEdge + screenHeight - targetH);
     }
     else
     {
-        targetX = objPlayer.x - view_wview[0]/2;
-        targetY = objPlayer.y - view_hview[0]/2;
+        targetX = objPlayer.x - targetW/2;
+        targetY = objPlayer.y - targetH/2;
     }
     
     if (!leaveRoom)
     {
-        targetX = clamp(targetX, 0, room_width - view_wview[0]); 
-        targetY = clamp(targetY, 0, room_height - view_hview[0]);
+        targetX = clamp(targetX, 0, room_width - targetW); 
+        targetY = clamp(targetY, 0, room_height - targetH);
     }
     
-    if (!init)    //On the first frame snap instantly to the player instead of moving smoothly.
+    if (!init)  //On the first frame snap instantly to the player instead of moving smoothly.
     {
         view_xview[0] = targetX;
         view_yview[0] = targetY;
@@ -112,6 +123,52 @@ if (init)
     view_xview[0] = lerp(view_xview[0], targetX, smoothLerp);
     view_yview[0] = lerp(view_yview[0], targetY, smoothLerp);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>d3d_set_projection_ortho(view_xview, view_yview, 800 / zoomFactor, 608 / zoomFactor, view_angle);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Don't draw self
 </string>
           </argument>
         </arguments>
