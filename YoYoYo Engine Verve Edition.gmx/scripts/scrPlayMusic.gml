@@ -1,7 +1,7 @@
 ///scrPlayMusic(soundid, loops)
 //Plays a song if it's not already playing
 
-var songID = argument0; //song to play (-1 plays nothing and stops anything currently playing)
+var songID = scrLoadMusic(argument0); //song to play (-1 plays nothing and stops anything currently playing)
 var loopSong = argument1; //whether or not to loop the song
 
 if (!global.muteMusic)  //Check if music is supposed to be muted

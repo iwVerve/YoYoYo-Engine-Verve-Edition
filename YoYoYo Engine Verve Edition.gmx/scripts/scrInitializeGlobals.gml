@@ -12,6 +12,7 @@ global.roomCaptionLast = global.roomCaptionDef;
 window_set_caption(global.roomCaptionDef);
 
 global.saveMap = ds_map_create();
+global.musicMap = ds_map_create();
 
 global.savenum = 1;
 global.difficulty = 0;  //0 = medium, 1 = hard, 2 = very hard, 3 = impossible

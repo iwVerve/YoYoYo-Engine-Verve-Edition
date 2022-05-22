@@ -1,0 +1,12 @@
+The engine provides you the ability to store your music externally next to your game. The upsides of this are a faster
+compile time when creating and a faster game startup when playing, especially so with large projects. External music
+files *must* be in the .ogg format.
+
+The difference's from YoYoYo's bgm player are only to scrPlayMusic - the script now accepts a file name string as well.
+So where previously you would have used musGuyRock, you can now use "GuyRock" to play GuyRock.ogg.
+
+A new script scrLoadMusic gets used to load the file - Use it if you want to play external sound files yourself outside
+of the bgm system, e.g. audio_play_sound(scrLoadMusic("song"), 0, false). You don't have to worry about loading a file
+twice, the engine checks for it on its own.
+
+You don't have to use the system - the old way of playing background music still works entirely the same.
