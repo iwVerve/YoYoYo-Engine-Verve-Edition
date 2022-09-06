@@ -185,6 +185,21 @@ else if (room == rDifficultySelect)    //Special case for restarting in difficul
 {
     if (scrButtonCheckPressed(KEY.RESTART))
     {
+        //Stop death sound/music
+        audio_stop_sound(global.deathSound);
+        audio_stop_sound(global.gameOverMusic);
+        
+        //Resume room music
+        audio_resume_sound(global.currentMusic);
+        
+        //Return to old gain if music is being faded out
+        if (global.musicFading)
+        {
+            global.musicFading = false;
+            audio_sound_gain(global.currentMusic, global.currentGain,0);
+            alarm[0] = -1;   //Reset alarm that pauses music
+        }
+    
         instance_destroy(objPlayer);
         room_restart();
     }
