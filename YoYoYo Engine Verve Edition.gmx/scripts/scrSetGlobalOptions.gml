@@ -25,7 +25,7 @@ global.blocksCrush = true;          //Makes getting stuck in the wall due to mov
 
 //Player
 global.adAlign = false;             //Sets whether or not to enable A/D align
-global.edgeDeath = true;            //Sets whether to kill the player when he leaves the boundaries of the room
+global.edgeDeath = true;            //Sets whether to kill the player when they leave the boundaries of the room
 global.directionalTapFix = false;   //Sets whether to change the behavior of tapping left/right for less than 1 frame (by default the player does not move when this happens, enabling this always moves the player for 1 frame when left/right is tapped)
 global.strictSaveBlockers = true;   //Bullets check for saveblocker collision when created instead of only after a frame of movement
 global.fixBulletHeight = true;      //Spawns bullets 3px higher, accurate to where the gun is.
