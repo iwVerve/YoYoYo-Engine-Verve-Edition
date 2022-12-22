@@ -623,6 +623,7 @@
     <instance objName="objCherry" x="880" y="144" name="inst_3568CB82" locked="0" code="with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    trgMoveTo(32, 0, 8, &quot;none&quot;, true);&#xA;}&#xA;&#xA;with(scrMakeTrigger(&quot;split and fall&quot;))&#xA;{&#xA;    trgGravity(0.5, 270);&#xA;    delay = 4;&#xA;}" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlockDynamic" x="480" y="544" name="inst_3A6E1A81" locked="0" code="with(scrMakeTrigger(&quot;dynamic&quot;))&#xA;{&#xA;    trgMoveTo(-64, 0, 1, &quot;inout&quot;, true);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrigger" x="448" y="32" name="inst_3DABF577" locked="0" code="trg = &quot;rotate&quot;;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="objSign" x="1056" y="96" name="inst_383FD88C" locked="0" code="text = &quot;Song kept getting games copyright flagged so I removed it :(&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bJumpThrough" x="384" y="480" w="32" h="32" xo="0" yo="0" id="10002439" name="inst_50EF77AB" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
