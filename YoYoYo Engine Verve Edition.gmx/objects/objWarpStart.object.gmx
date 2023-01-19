@@ -63,7 +63,7 @@ difName = "Load Game";
 }
 else    //start new game
 {
-    start_new_game(dif);  
+    menu_start_new_game(dif);  
     
     with (objPlayer)
     {

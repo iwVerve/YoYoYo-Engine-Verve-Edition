@@ -1,4 +1,4 @@
-///start_new_game(difficulty)
+///menu_start_new_game(difficulty)
 
 var difficulty = argument0;
 

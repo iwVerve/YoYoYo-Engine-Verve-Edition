@@ -1,4 +1,4 @@
-///menu_main_select_savefile()
+///menu_select_savefile()
 
 if (global.menuMode == 0)   //Difficulty select room
 {

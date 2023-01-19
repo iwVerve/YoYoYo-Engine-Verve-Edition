@@ -185,19 +185,20 @@
       <script>scripts\savedata_exists.gml</script>
     </scripts>
     <scripts name="Menu">
-      <script>scripts\start_new_game.gml</script>
+      <script>scripts\menu_start_new_game.gml</script>
       <script>scripts\menu_draw_menu_buttons.gml</script>
       <script>scripts\menu_draw_option.gml</script>
       <scripts name="Main">
-        <script>scripts\menu_main_change_savefile.gml</script>
-        <script>scripts\menu_main_select_savefile.gml</script>
-        <script>scripts\menu_main_deselect_savefile.gml</script>
-        <script>scripts\menu_main_goto_title.gml</script>
-        <script>scripts\menu_main_goto_options.gml</script>
-        <script>scripts\menu_main_change_difficulty.gml</script>
-        <script>scripts\menu_main_load_savefile.gml</script>
-        <script>scripts\menu_main_show_overwrite_warning.gml</script>
-        <script>scripts\menu_main_hide_overwrite_warning.gml</script>
+        <script>scripts\menu_change_savefile.gml</script>
+        <script>scripts\menu_select_savefile.gml</script>
+        <script>scripts\menu_deselect_savefile.gml</script>
+        <script>scripts\menu_goto_title.gml</script>
+        <script>scripts\menu_goto_options.gml</script>
+        <script>scripts\menu_change_difficulty.gml</script>
+        <script>scripts\menu_load_savefile.gml</script>
+        <script>scripts\menu_show_overwrite_warning.gml</script>
+        <script>scripts\menu_hide_overwrite_warning.gml</script>
+        <script>scripts\menu_draw_savefile.gml</script>
       </scripts>
     </scripts>
     <scripts name="Options">
@@ -263,10 +264,15 @@
       </scripts>
       <scripts name="Draw">
         <script>scripts\draw_text_outline.gml</script>
+        <script>scripts\draw_set_text.gml</script>
       </scripts>
       <scripts name="Avoidance">
         <script>scripts\spawn_shape.gml</script>
         <script>scripts\spawn_circle.gml</script>
+      </scripts>
+      <scripts name="IWPO Compatibility">
+        <script>scripts\scrSaveGame.gml</script>
+        <script>scripts\scrLoadGame.gml</script>
       </scripts>
       <script>scripts\ternary.gml</script>
       <script>scripts\print.gml</script>

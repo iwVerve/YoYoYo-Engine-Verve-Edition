@@ -159,20 +159,20 @@ for (var i = 0; i &lt; 3; i++)
 animationIndex++;
 
 if input_check_pressed(KEY.MENU_OPTIONS) {
-    menu_main_goto_options();
+    menu_goto_options();
 }
 
 //Select which savefile or return to title
 if !fileSelected {
     var hInput = input_check_pressed(KEY.MENU_RIGHT) - input_check_pressed(KEY.MENU_LEFT);
     if hInput != 0 {
-        menu_main_change_savefile(savefileSelect + hInput);
+        menu_change_savefile(savefileSelect + hInput);
     }
     else if input_check_pressed(KEY.MENU_BACK) {
-        menu_main_goto_title();
+        menu_goto_title();
     }
     else if input_check_pressed(KEY.MENU_ACCEPT) {
-        menu_main_select_savefile();
+        menu_select_savefile();
     }
 }
 //Select option in savefile
@@ -180,23 +180,23 @@ else {
     if !showOverwriteWarning { //Not currently showing yes/no confirmation
         var hInput = input_check_pressed(KEY.MENU_RIGHT) - input_check_pressed(KEY.MENU_LEFT);
         if hInput != 0 {
-            menu_main_change_difficulty(difficultySelect + hInput);
+            menu_change_difficulty(difficultySelect + hInput);
         }
         else if input_check_pressed(KEY.MENU_BACK) {
-            menu_main_deselect_savefile();
+            menu_deselect_savefile();
         }
         else if (input_check_pressed(KEY.MENU_ACCEPT)) {
             global.savenum = savefileSelect+1;
             
             if (difficultySelect == -1) { //Load game
-                menu_main_load_savefile();
+                menu_load_savefile();
             }
             else { //Start new game
                 if !savedata_exists(global.savenum) {
-                    start_new_game(difficultySelect);
+                    menu_start_new_game(difficultySelect);
                 }
                 else {
-                    menu_main_show_overwrite_warning();
+                    menu_show_overwrite_warning();
                 }
             }
         }
@@ -208,14 +208,14 @@ else {
             warningSelectYes = !warningSelectYes;
         }
         else if input_check_pressed(KEY.MENU_BACK) {
-            menu_main_hide_overwrite_warning();
+            menu_hide_overwrite_warning();
         }
         else if input_check_pressed(KEY.MENU_ACCEPT) {
             if warningSelectYes {
-                start_new_game(difficultySelect);
+                menu_start_new_game(difficultySelect);
             }
             else {
-                menu_main_hide_overwrite_warning();
+                menu_hide_overwrite_warning();
             }
         }
     }
@@ -247,17 +247,12 @@ else {
 for(var i = 0; i &lt; 3; i++)
 {
     var xx = x + i * xSeparation;
+    menu_draw_savefile(i, xx, y);
 
-    draw_set_color(c_black);
-    draw_set_halign(fa_middle);
-    draw_set_valign(fa_top);
-    draw_set_font(fDefault30);
-    
+    /*draw_set_text(fa_middle, fa_top, c_black, fDefault30);
     draw_text(xx + 64, y, str[i]);
     
-    draw_set_halign(fa_left);
-    draw_set_font(fDefault12);
-    
+    draw_set_text(fa_left, fa_top, c_black, fDefault12);
     draw_text(xx + 10, y + 70, "Deaths: " + string(death[i]));
     draw_text(xx + 10, y + 90, "Time: " + timeStr[i]);
     
@@ -296,14 +291,13 @@ for(var i = 0; i &lt; 3; i++)
         
         if (clear[i]) draw_text(xx + 63, y + 215, "Clear!!");
         
-        if (boss[0,i]) draw_sprite(sprBossItem, -1, xx + 0,  y + 128);
-        if (boss[1,i]) draw_sprite(sprBossItem, -1, xx + 32, y + 128);
-        if (boss[2,i]) draw_sprite(sprBossItem, -1, xx + 64, y + 128);
-        if (boss[3,i]) draw_sprite(sprBossItem, -1, xx + 96, y + 128);
-        if (boss[4,i]) draw_sprite(sprBossItem, -1, xx + 0,  y + 160);
-        if (boss[5,i]) draw_sprite(sprBossItem, -1, xx + 32, y + 160);
-        if (boss[6,i]) draw_sprite(sprBossItem, -1, xx + 64, y + 160);
-        if (boss[7,i]) draw_sprite(sprBossItem, -1, xx + 96, y + 160);
+        for(var item = 0; item &lt; 8; item += 1) {
+            var column = item % 4;
+            var row = floor(item / 4);
+            if (boss[item, i]) {
+                draw_sprite(sprBossItem, -1, xx + 32 * column,  y + 128 + 32 * row);
+            }
+        }
     }
     else
     {
@@ -322,7 +316,7 @@ for(var i = 0; i &lt; 3; i++)
         draw_sprite(sprCherry, animationIndex/15, xx+85,    y+310);
         draw_sprite(sprCherry, animationIndex/15, xx+105,   y+310);
         draw_sprite(sprCherry, animationIndex/15, xx+125,   y+310);
-    }
+    }*/
 }
 
 menu_draw_menu_buttons(true);

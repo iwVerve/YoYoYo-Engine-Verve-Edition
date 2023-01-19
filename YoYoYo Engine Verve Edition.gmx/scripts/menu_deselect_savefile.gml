@@ -1,3 +1,3 @@
-///menu_main_deselect_savefile()
+///menu_deselect_savefile()
 
 fileSelected = false;
