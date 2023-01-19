@@ -30,7 +30,8 @@
 fileSelected = false; //False if selecting a file, true if selecting difficulty
 savefileSelect = global.menuSelectPrev[0]; 
 difficultySelect = 0; //-1 is Load Game, 0+ are difficulties
-warningShow = false; //Confirmation text for overwriting a savefile
+//warningShow = false; //Confirmation text for overwriting a savefile
+showOverwriteWarning = false;
 warningSelectYes = true;
  
 str[0] = "Save 1";
@@ -157,121 +158,64 @@ for (var i = 0; i &lt; 3; i++)
 
 animationIndex++;
 
-if (input_check_pressed(KEY.MENU_OPTIONS))
-{
-    global.menuSelectPrev[0] = savefileSelect;
-    room_goto(rOptions);
-    exit;
+if input_check_pressed(KEY.MENU_OPTIONS) {
+    menu_main_goto_options();
 }
 
 //Select which savefile or return to title
-if (!fileSelected)
-{
-    if (input_check_pressed(KEY.MENU_LEFT))
-    {
-        audio_play_sound(global.menuSound, 0, false);
-        savefileSelect -= 1;
-        if (savefileSelect &lt; 0)
-            savefileSelect = 2;
+if !fileSelected {
+    var hInput = input_check_pressed(KEY.MENU_RIGHT) - input_check_pressed(KEY.MENU_LEFT);
+    if hInput != 0 {
+        menu_main_change_savefile(savefileSelect + hInput);
     }
-    else if (input_check_pressed(KEY.MENU_RIGHT))
-    {
-        audio_play_sound(global.menuSound, 0, false);
-        savefileSelect += 1;
-        if (savefileSelect &gt; 2)
-            savefileSelect = 0;
+    else if input_check_pressed(KEY.MENU_BACK) {
+        menu_main_goto_title();
     }
-    else if (input_check_pressed(KEY.MENU_BACK))
-    {
-        global.menuSelectPrev[0] = 0;
-        room_goto(rTitle);
-    }
-    else if (input_check_pressed(KEY.MENU_ACCEPT))
-    {
-        if (global.menuMode == 0)   //Difficulty select room
-        {
-            global.savenum = savefileSelect+1;
-            room_goto(rDifficultySelect);
-        }
-        else    //Difficulty select menu
-        {
-            fileSelected = true;
-            if (exists[savefileSelect]) //Default to Load game if file exists
-                difficultySelect = -1;
-            else
-                difficultySelect = 0;
-        }
+    else if input_check_pressed(KEY.MENU_ACCEPT) {
+        menu_main_select_savefile();
     }
 }
 //Select option in savefile
-else
-{
-    if (!warningShow)    //Not currently showing yes/no confirmation
-    {                                                                                            
-        if (input_check_pressed(KEY.MENU_LEFT))
-        {
-            audio_play_sound(global.menuSound, 0, false);
-            difficultySelect -= 1;
-            difficultySelect = modwrap(difficultySelect, -exists[savefileSelect], global.difficultyCount);
+else {
+    if !showOverwriteWarning { //Not currently showing yes/no confirmation
+        var hInput = input_check_pressed(KEY.MENU_RIGHT) - input_check_pressed(KEY.MENU_LEFT);
+        if hInput != 0 {
+            menu_main_change_difficulty(difficultySelect + hInput);
         }
-        else if (input_check_pressed(KEY.MENU_RIGHT))
-        {
-            audio_play_sound(global.menuSound, 0, false);
-            difficultySelect += 1;
-            difficultySelect = modwrap(difficultySelect, -exists[savefileSelect], global.difficultyCount);
+        else if input_check_pressed(KEY.MENU_BACK) {
+            menu_main_deselect_savefile();
         }
-        else if (input_check_pressed(KEY.MENU_BACK))
-        {
-            fileSelected = false;
-        }
-        else if (input_check_pressed(KEY.MENU_ACCEPT))
-        {
+        else if (input_check_pressed(KEY.MENU_ACCEPT)) {
             global.savenum = savefileSelect+1;
             
-            if (difficultySelect == -1)    //Load game
-            {
-                if (file_exists("Data\save" + string(global.savenum)))
-                    savedata_load(true);
+            if (difficultySelect == -1) { //Load game
+                menu_main_load_savefile();
             }
-            else    //Starts new game
-            {
-                if (!file_exists("Data\save" + string(global.savenum)))
-                {
-                    menu_start_new_game(difficultySelect);
+            else { //Start new game
+                if !savedata_exists(global.savenum) {
+                    start_new_game(difficultySelect);
                 }
-                else
-                {
-                    warningShow = true;
-                    warningSelectYes = true;
+                else {
+                    menu_main_show_overwrite_warning();
                 }
             }
         }
     }
-    else
-    {
-        if (input_check_pressed(KEY.MENU_LEFT))
-        {
+    else {
+        var hInput = input_check_pressed(KEY.MENU_RIGHT) - input_check_pressed(KEY.MENU_LEFT);
+        if hInput != 0 {
             audio_play_sound(global.menuSound, 0, false);
             warningSelectYes = !warningSelectYes;
         }
-        else if (input_check_pressed(KEY.MENU_RIGHT))
-        {
-            audio_play_sound(global.menuSound, 0, false);
-            warningSelectYes = !warningSelectYes;
+        else if input_check_pressed(KEY.MENU_BACK) {
+            menu_main_hide_overwrite_warning();
         }
-        else if (input_check_pressed(KEY.MENU_BACK))
-        {
-            warningShow = false;
-        }
-        else if (input_check_pressed(KEY.MENU_ACCEPT))
-        {
-            if (warningSelectYes)
-            {
-                menu_start_new_game(difficultySelect);
+        else if input_check_pressed(KEY.MENU_ACCEPT) {
+            if warningSelectYes {
+                start_new_game(difficultySelect);
             }
-            else
-            {
-                warningShow = false;
+            else {
+                menu_main_hide_overwrite_warning();
             }
         }
     }
@@ -321,7 +265,7 @@ for(var i = 0; i &lt; 3; i++)
     
     if (fileSelected &amp;&amp; i == savefileSelect)
     {
-        if (!warningShow)
+        if (!showOverwriteWarning)
         {
             var displayText = "&lt; " + global.difficultyNames[difficultySelect + 1] + " &gt;";
             draw_text(xx + 65, y + 49, displayText);
