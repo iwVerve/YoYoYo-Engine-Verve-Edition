@@ -157,7 +157,7 @@ for (var i = 0; i &lt; 3; i++)
 
 animationIndex++;
 
-if (scrButtonCheckPressed(KEY.MENU_OPTIONS))
+if (input_check_pressed(KEY.MENU_OPTIONS))
 {
     global.menuSelectPrev[0] = savefileSelect;
     room_goto(rOptions);
@@ -167,26 +167,26 @@ if (scrButtonCheckPressed(KEY.MENU_OPTIONS))
 //Select which savefile or return to title
 if (!fileSelected)
 {
-    if (scrButtonCheckPressed(KEY.MENU_LEFT))
+    if (input_check_pressed(KEY.MENU_LEFT))
     {
         audio_play_sound(global.menuSound, 0, false);
         savefileSelect -= 1;
         if (savefileSelect &lt; 0)
             savefileSelect = 2;
     }
-    else if (scrButtonCheckPressed(KEY.MENU_RIGHT))
+    else if (input_check_pressed(KEY.MENU_RIGHT))
     {
         audio_play_sound(global.menuSound, 0, false);
         savefileSelect += 1;
         if (savefileSelect &gt; 2)
             savefileSelect = 0;
     }
-    else if (scrButtonCheckPressed(KEY.MENU_BACK))
+    else if (input_check_pressed(KEY.MENU_BACK))
     {
         global.menuSelectPrev[0] = 0;
         room_goto(rTitle);
     }
-    else if (scrButtonCheckPressed(KEY.MENU_ACCEPT))
+    else if (input_check_pressed(KEY.MENU_ACCEPT))
     {
         if (global.menuMode == 0)   //Difficulty select room
         {
@@ -208,36 +208,36 @@ else
 {
     if (!warningShow)    //Not currently showing yes/no confirmation
     {                                                                                            
-        if (scrButtonCheckPressed(KEY.MENU_LEFT))
+        if (input_check_pressed(KEY.MENU_LEFT))
         {
             audio_play_sound(global.menuSound, 0, false);
             difficultySelect -= 1;
-            difficultySelect = scrWrapInRange(difficultySelect, -exists[savefileSelect], global.difficultyCount - 1);
+            difficultySelect = modwrap(difficultySelect, -exists[savefileSelect], global.difficultyCount);
         }
-        else if (scrButtonCheckPressed(KEY.MENU_RIGHT))
+        else if (input_check_pressed(KEY.MENU_RIGHT))
         {
             audio_play_sound(global.menuSound, 0, false);
             difficultySelect += 1;
-            difficultySelect = scrWrapInRange(difficultySelect, -exists[savefileSelect], global.difficultyCount - 1);
+            difficultySelect = modwrap(difficultySelect, -exists[savefileSelect], global.difficultyCount);
         }
-        else if (scrButtonCheckPressed(KEY.MENU_BACK))
+        else if (input_check_pressed(KEY.MENU_BACK))
         {
             fileSelected = false;
         }
-        else if (scrButtonCheckPressed(KEY.MENU_ACCEPT))
+        else if (input_check_pressed(KEY.MENU_ACCEPT))
         {
             global.savenum = savefileSelect+1;
             
             if (difficultySelect == -1)    //Load game
             {
                 if (file_exists("Data\save" + string(global.savenum)))
-                    scrLoadGame(true);
+                    savedata_load(true);
             }
             else    //Starts new game
             {
                 if (!file_exists("Data\save" + string(global.savenum)))
                 {
-                    scrStartNewGame(difficultySelect);
+                    menu_start_new_game(difficultySelect);
                 }
                 else
                 {
@@ -249,25 +249,25 @@ else
     }
     else
     {
-        if (scrButtonCheckPressed(KEY.MENU_LEFT))
+        if (input_check_pressed(KEY.MENU_LEFT))
         {
             audio_play_sound(global.menuSound, 0, false);
             warningSelectYes = !warningSelectYes;
         }
-        else if (scrButtonCheckPressed(KEY.MENU_RIGHT))
+        else if (input_check_pressed(KEY.MENU_RIGHT))
         {
             audio_play_sound(global.menuSound, 0, false);
             warningSelectYes = !warningSelectYes;
         }
-        else if (scrButtonCheckPressed(KEY.MENU_BACK))
+        else if (input_check_pressed(KEY.MENU_BACK))
         {
             warningShow = false;
         }
-        else if (scrButtonCheckPressed(KEY.MENU_ACCEPT))
+        else if (input_check_pressed(KEY.MENU_ACCEPT))
         {
             if (warningSelectYes)
             {
-                scrStartNewGame(difficultySelect);
+                menu_start_new_game(difficultySelect);
             }
             else
             {
@@ -381,7 +381,7 @@ for(var i = 0; i &lt; 3; i++)
     }
 }
 
-scrDrawButtonInfo(true);
+menu_draw_menu_buttons(true);
 </string>
           </argument>
         </arguments>

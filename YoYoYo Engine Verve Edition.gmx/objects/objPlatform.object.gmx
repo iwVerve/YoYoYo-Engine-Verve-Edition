@@ -75,7 +75,7 @@ if (speed != 0)
                 {
                     if (!global.platformsPhase)
                     {
-                        scrKillPlayer();
+                        player_kill();
                     }
                 }
                 else

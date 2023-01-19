@@ -67,10 +67,10 @@ animationTime = 0;
             <kind>1</kind>
             <string>animationTime++;
 
-if (scrButtonCheckPressed(KEY.MENU_BACK) || scrButtonCheckPressed(KEY.MENU_OPTIONS))
+if (input_check_pressed(KEY.MENU_BACK) || input_check_pressed(KEY.MENU_OPTIONS))
 {
     //Save changes and go back
-    scrSaveConfig();
+    config_save();
     global.menuSelectPrev[1] = 0;
     if (!global.gameStarted)
     {
@@ -88,14 +88,14 @@ if (numberOfOptions == 0)
     exit;
 }
 
-var vInputPressed = scrButtonCheckPressed(KEY.MENU_DOWN) - scrButtonCheckPressed(KEY.MENU_UP);
+var vInputPressed = input_check_pressed(KEY.MENU_DOWN) - input_check_pressed(KEY.MENU_UP);
 if (vInputPressed != 0)
 {
     script_execute(options[select], "end");
 
     //Move to next/previous option
     select += vInputPressed;
-    select = scrWrapInRange(select, 0, numberOfOptions - 1);
+    select = modwrap(select, 0, numberOfOptions);
     audio_play_sound(global.menuSound, 0, false);
     script_execute(options[select], "init");
 }
@@ -124,7 +124,7 @@ script_execute(selected, "step");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(scrTernary(!global.gameStarted, c_black, c_white));
+            <string>draw_set_color(ternary(!global.gameStarted, c_black, c_white));
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fDefault30);
@@ -135,12 +135,12 @@ currentSlot = 0;
 for (var i = 0; i &lt; numberOfOptions; i++)
 {
     var script = options[i];
-    scrDrawOption(script_execute(script, "name"), script_execute(script, "value"));
+    menu_draw_option(script_execute(script, "name"), script_execute(script, "value"));
 }
 
 draw_sprite(sprPlayerIdle, animationTime/5, xMargin - 16, yStart + (yStep * select) + 26);
 
-scrDrawButtonInfo(false);
+menu_draw_menu_buttons(false);
 </string>
           </argument>
         </arguments>

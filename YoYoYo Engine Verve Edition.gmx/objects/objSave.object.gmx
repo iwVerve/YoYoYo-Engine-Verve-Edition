@@ -111,7 +111,7 @@ if (global.difficulty &gt; difficulty)  //Destroy the save if on too high diffic
             <kind>1</kind>
             <string>/// Z-Save behavior
 
-if (scrButtonCheckPressed(KEY.SHOOT))  //save if player is touching the save and shooting
+if (input_check_pressed(KEY.SHOOT))  //save if player is touching the save and shooting
 {
     event_user(0);
 }
@@ -147,7 +147,7 @@ if (canSave &amp;&amp; instance_exists(objPlayer) &amp;&amp; global.grav == grav
         alarm[0] = 30;  //set alarm so the player can save again
         image_index = 1;
         image_speed = 0.017;
-        scrSaveGame(true);
+        savedata_save(true);
     }
 }
 </string>

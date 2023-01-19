@@ -54,7 +54,7 @@ offsetY = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!scrInRange(other.x, 0, room_width) || !scrInRange(other.y, 0, room_height))  //if outside room
+            <string>if (!in_range(other.x, 0, room_width) || !in_range(other.y, 0, room_height))  //if outside room
 {
     if (!smooth)
     {

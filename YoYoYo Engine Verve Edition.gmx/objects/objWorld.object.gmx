@@ -110,15 +110,15 @@ audio_pause_sound(global.currentMusic);
             <kind>1</kind>
             <string>///Game checks - Pause, restart
 
-scrCheckAndSwitchController();
+input_check_and_switch_controller();
 
 if (global.gameStarted)
 {
-    scrCheckAndPause();
+    check_and_pause();
     
     if (!global.gamePaused)
     {
-        if (scrButtonCheckPressed(KEY.RESTART))
+        if (input_check_pressed(KEY.RESTART))
         {
             //Stop death sound/music
             audio_stop_sound(global.deathSound);
@@ -135,8 +135,8 @@ if (global.gameStarted)
                 alarm[0] = -1;   //Reset alarm that pauses music
             }
             
-            scrSaveGame(false);    //Save death/time
-            scrLoadGame(false);    //Load the game
+            savedata_save(false);    //Save death/time
+            savedata_load(false);    //Load the game
         }
         
         if ( (global.timeWhenDead || instance_exists(objPlayer)) &amp;&amp; !(!global.timeWhenCleared &amp;&amp; global.gameClear) )    //Increment timer
@@ -152,8 +152,8 @@ if (global.gameStarted)
 
         if (!inPauseOptions)
         {        
-            var vPressed = (scrButtonCheckPressed(KEY.UP) - scrButtonCheckPressed(KEY.DOWN));                
-            var v = (scrButtonCheck(KEY.UP) - scrButtonCheck(KEY.DOWN));
+            var vPressed = (input_check_pressed(KEY.UP) - input_check_pressed(KEY.DOWN));                
+            var v = (input_check(KEY.UP) - input_check(KEY.DOWN));
             
             if (vPressed != 0)
             {
@@ -172,18 +172,18 @@ if (global.gameStarted)
             global.volumeLevel = clamp(global.volumeLevel, 0, 100);
             audio_master_gain(global.volumeLevel / 100);
             
-            if (scrButtonCheckPressed(KEY.MENU_OPTIONS))
+            if (input_check_pressed(KEY.MENU_OPTIONS))
             {
                 instance_create(0, 0, objOptionsMenu);
             }
         }
     }
     
-    scrSetRoomCaption();
+    set_room_caption();
 }
 else if (room == rDifficultySelect)    //Special case for restarting in difficulty select
 {
-    if (scrButtonCheckPressed(KEY.RESTART))
+    if (input_check_pressed(KEY.RESTART))
     {
         //Stop death sound/music
         audio_stop_sound(global.deathSound);
@@ -249,7 +249,7 @@ if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused
     {
         with (objPlayer)
         {
-            scrSaveGame(true);
+            savedata_save(true);
             var snd = audio_play_sound(sndItem, 0, false);
             audio_sound_gain(snd, 0.5, 0);
         }
@@ -337,7 +337,7 @@ if (keyboard_check_pressed(vk_escape))
 
 if (keyboard_check_pressed(vk_f2))
 {
-    scrRestartGame();
+    restart_game();
     exit;
 }
 
@@ -345,18 +345,18 @@ if (keyboard_check_pressed(vk_f4) &amp;&amp; !global.gamePaused) //Toggle fullsc
 {
     global.fullscreenMode = !global.fullscreenMode;
     window_set_fullscreen(global.fullscreenMode);
-    scrSaveConfig();
+    config_save();
 }
 
 if (keyboard_check_pressed(vk_f5) &amp;&amp; !global.gamePaused) //Reset window size
 {
-    scrResetWindowSize();
+    reset_window_size();
 }
 
 if (keyboard_check(vk_control) &amp;&amp; keyboard_check_pressed(ord("M")) &amp;&amp; !global.gamePaused) //Toggle mute music setting
 {
-    scrToggleMusic();
-    scrSaveConfig();
+    music_toggle();
+    config_save();
 }
 </string>
           </argument>
@@ -396,7 +396,7 @@ if (Id == global.httpUpdateCheck)
             if (!is_undefined(global.newestVersionNumber) &amp;&amp; !is_undefined(global.newestVersionLink))
             {
                 global.isUpToDate = (global.gameVersion == global.newestVersionNumber);
-                updateString = scrFormat("Current version {global.gameVersion} is outdated! {global.newestVersionNumber} is available.#Press Tab to open the download link");
+                updateString = string_concat("Current version ", global.gameVersion, " is outdated! ", global.newestVersionNumber, " is available.#Press Tab to open the download link");
             }
         }
     }
@@ -455,11 +455,11 @@ alarm[0] = 50;  //Pause music when it's done fading
 
 if (!instance_exists(objPlayMusic))
 {
-    scrGetMusic();
+    music_get();
 }
 
 room_speed = 50;
-scrSetRoomCaption();
+set_room_caption();
 </string>
           </argument>
         </arguments>
@@ -484,8 +484,8 @@ scrSetRoomCaption();
             <kind>1</kind>
             <string>///Initialize everything
 
-scrInitializeGlobals();
-scrLoadConfig();
+initialize_globals();
+config_load();
 
 if (global.checkForUpdates)
 {
@@ -580,7 +580,7 @@ if (!global.gameStarted)
 {
     if (!global.isUpToDate)
     {
-        scrDrawTextOutline(34, 34, updateString, c_white, c_black);
+        draw_text_outline(34, 34, updateString, c_white, c_black);
     }
 }
 else if (global.debugOverlay)
@@ -593,15 +593,15 @@ else if (global.debugOverlay)
         drawAlign = objPlayer.x mod 3;
     }
     
-    scrDrawTextOutline(20, 20, "X: "+string(drawX), c_black, c_white);
-    scrDrawTextOutline(20, 40, "Y: "+string(drawY), c_black, c_white);
-    scrDrawTextOutline(20, 60, "Align: "+string(drawAlign), c_black, c_white);
-    scrDrawTextOutline(20, 80, "Room name: "+room_get_name(room), c_black, c_white);
-    scrDrawTextOutline(20, 100, "Room number: "+string(room), c_black, c_white);
-    scrDrawTextOutline(20, 120, "God mode: "+string(global.debugNoDeath), c_black, c_white);
-    scrDrawTextOutline(20, 140, "Infinite jump: "+string(global.debugInfJump), c_black, c_white);
-    scrDrawTextOutline(20, 160, "FPS: "+string(fps), c_black, c_white);
-    scrDrawTextOutline(20, 180, "Real FPS: "+string(fps_real), c_black, c_white);
+    draw_text_outline(20, 20, "X: "+string(drawX), c_black, c_white);
+    draw_text_outline(20, 40, "Y: "+string(drawY), c_black, c_white);
+    draw_text_outline(20, 60, "Align: "+string(drawAlign), c_black, c_white);
+    draw_text_outline(20, 80, "Room name: "+room_get_name(room), c_black, c_white);
+    draw_text_outline(20, 100, "Room number: "+string(room), c_black, c_white);
+    draw_text_outline(20, 120, "God mode: "+string(global.debugNoDeath), c_black, c_white);
+    draw_text_outline(20, 140, "Infinite jump: "+string(global.debugInfJump), c_black, c_white);
+    draw_text_outline(20, 160, "FPS: "+string(fps), c_black, c_white);
+    draw_text_outline(20, 180, "Real FPS: "+string(fps_real), c_black, c_white);
 }
 </string>
           </argument>
@@ -674,11 +674,11 @@ if (global.gamePaused)
         draw_set_halign(fa_middle);
         if (!global.controllerMode)
         {
-            var optionsButton = scrGetKeybind(global.menuOptionsButton[0]);
+            var optionsButton = input_get_key_name(global.menuOptionsButton[0]);
         }
         else
         {
-            var optionsButton = scrGetControllerBind(global.menuOptionsButton[1]);
+            var optionsButton = input_get_button_name(global.menuOptionsButton[1]);
         }
         draw_text(400, 556, "["+optionsButton+"] Options");
     }

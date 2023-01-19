@@ -397,15 +397,15 @@
     <instance objName="objBossItem" x="1248" y="1152" name="inst_9BBA33FB" locked="0" code="itemNum = 7;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatform" x="256" y="160" name="inst_D8E63516" locked="0" code="hspeed = 2;&#xA;vspeed = 2;&#xA;bounce = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatformTouch" x="576" y="384" name="inst_8D213241" locked="0" code="v = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherry" x="64" y="1120" name="inst_4AB4A35E" locked="0" code="with(scrMakeTrigger(2))&#xA;{            &#xA;    trgMoveDir(45, 30);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeDown" x="608" y="1152" name="inst_963AA7C3" locked="0" code="with(scrMakeTrigger(3))&#xA;{&#xA;    trgMove(10, 0);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherry" x="64" y="1120" name="inst_4AB4A35E" locked="0" code="with(make_trigger(2))&#xA;{            &#xA;    trg_move_dir(45, 30);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeDown" x="608" y="1152" name="inst_963AA7C3" locked="0" code="with(make_trigger(3))&#xA;{&#xA;    trg_move(10, 0);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatformInvisible" x="32" y="416" name="inst_C5950A04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatformInvisible" x="64" y="416" name="inst_7DDCF3B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatformInvisible" x="96" y="416" name="inst_152A1DA3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeRight" x="32" y="704" name="inst_FE1A9D4C" locked="0" code="with(scrMakeTrigger(1))&#xA;{&#xA;    trgMove(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeRight" x="32" y="672" name="inst_CB819804" locked="0" code="with(scrMakeTrigger(1))&#xA;{&#xA;    trgMove(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeRight" x="32" y="736" name="inst_89F50DD1" locked="0" code="with(scrMakeTrigger(1))&#xA;{&#xA;    trgMove(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeRight" x="32" y="768" name="inst_108D1A91" locked="0" code="with(scrMakeTrigger(1))&#xA;{&#xA;    trgMove(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeRight" x="32" y="704" name="inst_FE1A9D4C" locked="0" code="with(make_trigger(1))&#xA;{&#xA;    trg_move(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeRight" x="32" y="672" name="inst_CB819804" locked="0" code="with(make_trigger(1))&#xA;{&#xA;    trg_move(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeRight" x="32" y="736" name="inst_89F50DD1" locked="0" code="with(make_trigger(1))&#xA;{&#xA;    trg_move(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeRight" x="32" y="768" name="inst_108D1A91" locked="0" code="with(make_trigger(1))&#xA;{&#xA;    trg_move(0, 2);&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bAllTiles" x="32" y="576" w="32" h="32" xo="0" yo="0" id="10000001" name="inst_1D4C62F7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

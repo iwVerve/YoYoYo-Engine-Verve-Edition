@@ -36,7 +36,7 @@ showResetPrompt = false;
 //Add one for the "Reset controls" line
 numberOfKeys = KEY.NUMBER + 1;
 
-buttonName = scrControls("getKeyboardNameArray");
+buttonName = input_define("getKeyboardNameArray");
 event_user(0);
 
 //Make Reset controls the last option
@@ -95,18 +95,18 @@ showResetPrompt = false;
 if (!settingKey)
 {
     //Not currently rebinding a key, navigate options
-    if (scrButtonCheckPressed(KEY.MENU_BACK))
+    if (input_check_pressed(KEY.MENU_BACK))
     {
         //Save changes and go back
-        scrSaveConfig();
+        config_save();
         instance_create(x, y, objOptionsMenu);
         instance_destroy();
     }
     
-    if (scrButtonCheckPressed(KEY.MENU_OPTIONS))
+    if (input_check_pressed(KEY.MENU_OPTIONS))
     {
         //Save changes and go back
-        scrSaveConfig();
+        config_save();
         global.menuSelectPrev[1] = 0;
         if (!global.gameStarted)
         {
@@ -119,16 +119,16 @@ if (!settingKey)
         exit;
     }
                                       
-    var vInputPressed = scrButtonCheckPressed(KEY.MENU_DOWN) - scrButtonCheckPressed(KEY.MENU_UP);
+    var vInputPressed = input_check_pressed(KEY.MENU_DOWN) - input_check_pressed(KEY.MENU_UP);
     if (vInputPressed != 0)
     {
         //Move to next/previous option
         audio_play_sound(global.menuSound, 0, false);    
         select += vInputPressed;
-        select = scrWrapInRange(select, 0, numberOfKeys - 1)
+        select = modwrap(select, 0, numberOfKeys);
     }
                                
-    if (scrButtonCheckPressed(KEY.MENU_ACCEPT))
+    if (input_check_pressed(KEY.MENU_ACCEPT))
     {
         //Select current option  
         if (select != numberOfKeys - 1)
@@ -139,7 +139,7 @@ if (!settingKey)
         else
         {
             //Reset controls
-            scrControls("setKeyboardDefault");
+            input_define("setKeyboardDefault");
             
             showResetPrompt = true;
             alarm[0] = 60;
@@ -163,7 +163,7 @@ else
         global.controls[select, 0] = newKey;
         settingKey = false;
     }
-    else if (scrAnyControllerButton() != -1)
+    else if (input_any_controller_button() != -1)
     {
         settingKey = false;
     }
@@ -197,7 +197,7 @@ event_user(0);
 
 for (var i = 0; i &lt; numberOfKeys - 1; i++)
 {
-    bindName[i] = scrGetKeybind(global.controls[i, 0]);
+    bindName[i] = input_get_key_name(global.controls[i, 0]);
 }
 </string>
           </argument>
@@ -222,7 +222,7 @@ for (var i = 0; i &lt; numberOfKeys - 1; i++)
           <argument>
             <kind>1</kind>
             <string>draw_set_valign(fa_top);
-draw_set_color(scrTernary(!global.gameStarted, c_black, c_white));
+draw_set_color(ternary(!global.gameStarted, c_black, c_white));
 draw_set_font(fDefault24);
 
 yStart = (608 - numberOfKeys * yStep) / 2;
@@ -239,12 +239,12 @@ for(var i = 0; i &lt; numberOfKeys; i++)
     {
         bindText = "Controls reset!";
     }
-    scrDrawOption(buttonName[i], bindText);
+    menu_draw_option(buttonName[i], bindText);
     
     draw_sprite(sprPlayerIdle, animationTime/5, xMargin - 16, yStart + (yStep * select) + 21);
 }
 
-scrDrawButtonInfo(false);
+menu_draw_menu_buttons(false);
 </string>
           </argument>
         </arguments>

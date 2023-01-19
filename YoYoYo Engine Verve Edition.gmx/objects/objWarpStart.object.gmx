@@ -54,16 +54,16 @@ difName = "Load Game";
 {
     if (file_exists("Data\save" + string(global.savenum)))
     {                        
-        scrLoadGame(true);
+        savedata_load(true);
     }
     else
     {
-        scrKillPlayer();
+        player_kill();
     }
 }
 else    //start new game
 {
-    scrStartNewGame(dif);  
+    menu_start_new_game(dif);  
     
     with (objPlayer)
     {

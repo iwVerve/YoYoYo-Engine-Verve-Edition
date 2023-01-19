@@ -30,7 +30,7 @@
 if (!global.gameClear)
 {
     global.gameClear = true;
-    scrSaveGame(true);
+    savedata_save(true);
 }
 </string>
           </argument>

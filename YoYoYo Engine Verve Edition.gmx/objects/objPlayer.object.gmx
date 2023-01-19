@@ -39,21 +39,21 @@ onPlatform = false;
 
 xScale = 1;
 
-scrSetPlayerMask();
+player_set_mask();
 
 if (global.difficulty == 0 &amp;&amp; global.gameStarted)
     { instance_create(x,y,objBow); }
     
 if (global.autosave) //Save the game if currently set to autosave
 {
-    scrSaveGame(true);
+    savedata_save(true);
     global.autosave = false;
 }
 
 xsafe = x;
 ysafe = y;
 
-scrDynamicCollision(true);
+do_dynamic_collision(true);
 </string>
           </argument>
         </arguments>
@@ -126,11 +126,11 @@ if (!place_free(x, y))
 
 if (global.blocksCrush)
 {
-    scrDynamicCollision(false, scrKillPlayer);
+    do_dynamic_collision(false, player_kill);
 }
 else
 {
-    scrDynamicCollision(false);
+    do_dynamic_collision(false);
 }
 </string>
           </argument>
@@ -157,7 +157,7 @@ else
 var killer = instance_place(x, y, objPlayerKiller)
 if (killer != noone)
 {
-    scrKillPlayer();
+    player_kill();
 }
 </string>
           </argument>
@@ -183,7 +183,7 @@ if (killer != noone)
 
 if ((bbox_right &lt; 0 || bbox_left &gt; room_width || bbox_bottom &lt; 0 || bbox_top &gt; room_height) &amp;&amp; global.edgeDeath)
 {
-    scrKillPlayer();
+    player_kill();
 }
 
 
@@ -196,8 +196,8 @@ if (!onVineR &amp;&amp; !onVineL)   //Not touching any vines
     if (onPlatform || !notOnBlock)  //Standing on something
     {
         //Check if moving left/right
-        var L = (scrButtonCheck(KEY.LEFT) || (global.directionalTapFix &amp;&amp; scrButtonCheckPressed(KEY.LEFT)));
-        var R = (scrButtonCheck(KEY.RIGHT) || (global.directionalTapFix &amp;&amp; scrButtonCheckPressed(KEY.RIGHT)));
+        var L = (input_check(KEY.LEFT) || (global.directionalTapFix &amp;&amp; input_check_pressed(KEY.LEFT)));
+        var R = (input_check(KEY.RIGHT) || (global.directionalTapFix &amp;&amp; input_check_pressed(KEY.RIGHT)));
         
         if ((L || R) &amp;&amp; !frozen)
         {
@@ -254,8 +254,8 @@ else    //Touching a vine
             <string>///Player actions and movement
 
 //Left-right input
-var L = (scrButtonCheck(KEY.LEFT) || (global.directionalTapFix &amp;&amp; scrButtonCheckPressed(KEY.LEFT)));
-var R = (scrButtonCheck(KEY.RIGHT) || (global.directionalTapFix &amp;&amp; scrButtonCheckPressed(KEY.RIGHT)));
+var L = (input_check(KEY.LEFT) || (global.directionalTapFix &amp;&amp; input_check_pressed(KEY.LEFT)));
+var R = (input_check(KEY.RIGHT) || (global.directionalTapFix &amp;&amp; input_check_pressed(KEY.RIGHT)));
 var h = 0;
 if (!frozen)
     { h = -(L || R) + (2 * R); }
@@ -320,20 +320,20 @@ if (global.grav * vspeed &gt; maxVspeed)
 
 if (!frozen)
 {
-    if (scrButtonCheckPressed(KEY.SHOOT))
-        scrPlayerShoot();
-    if (scrButtonCheckPressed(KEY.JUMP))
-        scrPlayerJump();
-    if (scrButtonCheckReleased(KEY.JUMP))
-        scrPlayerReleaseJump();
-    if (scrButtonCheckPressed(KEY.SUICIDE))
-        scrKillPlayer();
+    if (input_check_pressed(KEY.SHOOT))
+        player_shoot();
+    if (input_check_pressed(KEY.JUMP))
+        player_try_jump();
+    if (input_check_released(KEY.JUMP))
+        player_release_jump();
+    if (input_check_pressed(KEY.SUICIDE))
+        player_kill();
 }
 
 if (global.adAlign &amp;&amp; !place_free(x, y + (global.grav)) &amp;&amp; !frozen)
 {
-    if (scrButtonCheckPressed(KEY.ALIGN_LEFT)) {hspeed -= 1;}
-    if (scrButtonCheckPressed(KEY.ALIGN_RIGHT)) {hspeed += 1;}
+    if (input_check_pressed(KEY.ALIGN_LEFT)) {hspeed -= 1;}
+    if (input_check_pressed(KEY.ALIGN_RIGHT)) {hspeed += 1;}
 }
 </string>
           </argument>
@@ -367,9 +367,9 @@ if (onVineL || onVineR)
     vspeed = 2 * global.grav;
     
     //Try to leave vine
-    if (onVineL &amp;&amp; scrButtonCheckPressed(KEY.RIGHT)) || (onVineR &amp;&amp; scrButtonCheckPressed(KEY.LEFT))
+    if (onVineL &amp;&amp; input_check_pressed(KEY.RIGHT)) || (onVineR &amp;&amp; input_check_pressed(KEY.LEFT))
     {
-        if (scrButtonCheck(KEY.JUMP))    //Jumping off
+        if (input_check(KEY.JUMP))    //Jumping off
         {
             if (onVineR)
                 { hspeed = -15; }
@@ -728,7 +728,7 @@ else    //Flipped
 
 if (global.autosave) //Save the game if currently set to autosave
 {
-    scrSaveGame(true);
+    savedata_save(true);
     global.autosave = false;
 }
 </string>

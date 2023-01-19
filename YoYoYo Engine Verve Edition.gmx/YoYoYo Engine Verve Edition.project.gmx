@@ -166,90 +166,99 @@
     <path>paths\pathExample</path>
   </paths>
   <scripts name="scripts">
+    <script>scripts\engine_options.gml</script>
     <scripts name="World">
-      <script>scripts\scrInitializeGlobals.gml</script>
-      <script>scripts\scrSetGlobalOptions.gml</script>
-      <script>scripts\scrSetRoomCaption.gml</script>
-      <script>scripts\scrRestartGame.gml</script>
-      <script>scripts\scrSetVsync.gml</script>
-      <script>scripts\scrResetWindowSize.gml</script>
-      <script>scripts\scrCheckAndPause.gml</script>
-      <script>scripts\scrDynamicCollision.gml</script>
+      <script>scripts\initialize_globals.gml</script>
+      <script>scripts\set_room_caption.gml</script>
+      <script>scripts\restart_game.gml</script>
+      <script>scripts\set_vsync.gml</script>
+      <script>scripts\reset_window_size.gml</script>
+      <script>scripts\check_and_pause.gml</script>
+      <script>scripts\do_dynamic_collision.gml</script>
     </scripts>
     <scripts name="Save/Load">
-      <script>scripts\scrSaveConfig.gml</script>
-      <script>scripts\scrLoadConfig.gml</script>
-      <script>scripts\scrSaveGame.gml</script>
-      <script>scripts\scrLoadGame.gml</script>
-      <script>scripts\scrValidateSaveMap.gml</script>
+      <script>scripts\config_save.gml</script>
+      <script>scripts\config_load.gml</script>
+      <script>scripts\savedata_save.gml</script>
+      <script>scripts\savedata_load.gml</script>
+      <script>scripts\savedata_validate.gml</script>
     </scripts>
     <scripts name="Menu">
-      <script>scripts\scrStartNewGame.gml</script>
-      <script>scripts\scrDrawButtonInfo.gml</script>
-      <script>scripts\scrDrawOption.gml</script>
+      <script>scripts\menu_start_new_game.gml</script>
+      <script>scripts\menu_draw_menu_buttons.gml</script>
+      <script>scripts\menu_draw_option.gml</script>
     </scripts>
     <scripts name="Options">
-      <script>scripts\scrOptionsList.gml</script>
-      <script>scripts\optTemplate.gml</script>
-      <script>scripts\optMusic.gml</script>
-      <script>scripts\optVolume.gml</script>
-      <script>scripts\optFullscreen.gml</script>
-      <script>scripts\optSmoothing.gml</script>
-      <script>scripts\optVSync.gml</script>
-      <script>scripts\optKeyboard.gml</script>
-      <script>scripts\optController.gml</script>
+      <script>scripts\options_list.gml</script>
+      <script>scripts\opt_template.gml</script>
+      <script>scripts\opt_music.gml</script>
+      <script>scripts\opt_volume.gml</script>
+      <script>scripts\opt_fullscreen.gml</script>
+      <script>scripts\opt_smoothing.gml</script>
+      <script>scripts\opt_vsync.gml</script>
+      <script>scripts\opt_keyboard.gml</script>
+      <script>scripts\opt_controller.gml</script>
     </scripts>
     <scripts name="Music">
-      <script>scripts\scrGetMusic.gml</script>
-      <script>scripts\scrPlayMusic.gml</script>
-      <script>scripts\scrStopMusic.gml</script>
-      <script>scripts\scrToggleMusic.gml</script>
-      <script>scripts\scrLoadMusic.gml</script>
+      <script>scripts\music_get.gml</script>
+      <script>scripts\music_play.gml</script>
+      <script>scripts\music_stop.gml</script>
+      <script>scripts\music_toggle.gml</script>
+      <script>scripts\music_load.gml</script>
     </scripts>
     <scripts name="Player">
-      <script>scripts\scrPlayerJump.gml</script>
-      <script>scripts\scrPlayerReleaseJump.gml</script>
-      <script>scripts\scrPlayerShoot.gml</script>
-      <script>scripts\scrSetPlayerMask.gml</script>
-      <script>scripts\scrKillPlayer.gml</script>
-      <script>scripts\scrFlipGrav.gml</script>
+      <script>scripts\player_try_jump.gml</script>
+      <script>scripts\player_ground_jump.gml</script>
+      <script>scripts\player_air_jump.gml</script>
+      <script>scripts\player_release_jump.gml</script>
+      <script>scripts\player_shoot.gml</script>
+      <script>scripts\player_set_mask.gml</script>
+      <script>scripts\player_kill.gml</script>
+      <script>scripts\player_flip.gml</script>
     </scripts>
     <scripts name="Trigger">
-      <script>scripts\scrMakeTrigger.gml</script>
-      <script>scripts\scrUsesTrigger.gml</script>
-      <script>scripts\scrTriggerList.gml</script>
-      <script>scripts\trgTemplate.gml</script>
-      <script>scripts\trgMove.gml</script>
-      <script>scripts\trgMoveDir.gml</script>
-      <script>scripts\trgMoveTo.gml</script>
-      <script>scripts\trgPath.gml</script>
-      <script>scripts\trgGravity.gml</script>
-      <script>scripts\trgSound.gml</script>
-      <script>scripts\trgFade.gml</script>
-      <script>scripts\trgStretch.gml</script>
-      <script>scripts\trgRotate.gml</script>
-      <script>scripts\trgUser.gml</script>
-      <script>scripts\trgScript.gml</script>
+      <script>scripts\make_trigger.gml</script>
+      <script>scripts\trigger_used.gml</script>
+      <script>scripts\trigger_list.gml</script>
+      <script>scripts\trg_template.gml</script>
+      <script>scripts\trg_move.gml</script>
+      <script>scripts\trg_move_dir.gml</script>
+      <script>scripts\trg_move_to.gml</script>
+      <script>scripts\trg_path.gml</script>
+      <script>scripts\trg_gravity.gml</script>
+      <script>scripts\trg_sound.gml</script>
+      <script>scripts\trg_fade.gml</script>
+      <script>scripts\trg_stretch.gml</script>
+      <script>scripts\trg_rotate.gml</script>
+      <script>scripts\trg_user.gml</script>
+      <script>scripts\trg_script.gml</script>
     </scripts>
     <scripts name="Controls">
-      <script>scripts\scrControls.gml</script>
-      <script>scripts\scrAnyControllerButton.gml</script>
-      <script>scripts\scrButtonCheck.gml</script>
-      <script>scripts\scrButtonCheckPressed.gml</script>
-      <script>scripts\scrButtonCheckReleased.gml</script>
-      <script>scripts\scrGetKeybind.gml</script>
-      <script>scripts\scrGetControllerBind.gml</script>
-      <script>scripts\scrCheckAndSwitchController.gml</script>
+      <script>scripts\input_define.gml</script>
+      <script>scripts\input_any_controller_button.gml</script>
+      <script>scripts\input_check.gml</script>
+      <script>scripts\input_check_pressed.gml</script>
+      <script>scripts\input_check_released.gml</script>
+      <script>scripts\input_get_key_name.gml</script>
+      <script>scripts\input_get_button_name.gml</script>
+      <script>scripts\input_check_and_switch_controller.gml</script>
     </scripts>
     <scripts name="Utility">
-      <script>scripts\scrDrawTextOutline.gml</script>
-      <script>scripts\scrInRange.gml</script>
-      <script>scripts\scrWrapInRange.gml</script>
-      <script>scripts\scrTernary.gml</script>
-      <script>scripts\scrMakeShapes.gml</script>
-      <script>scripts\scrMakeCircle.gml</script>
-      <script>scripts\scrEaseValue.gml</script>
-      <script>scripts\scrFormat.gml</script>
+      <scripts name="Math">
+        <script>scripts\in_range.gml</script>
+        <script>scripts\modwrap.gml</script>
+        <script>scripts\ease_value.gml</script>
+      </scripts>
+      <scripts name="Draw">
+        <script>scripts\draw_text_outline.gml</script>
+      </scripts>
+      <scripts name="Avoidance">
+        <script>scripts\spawn_shape.gml</script>
+        <script>scripts\spawn_circle.gml</script>
+      </scripts>
+      <script>scripts\ternary.gml</script>
+      <script>scripts\print.gml</script>
+      <script>scripts\string_concat.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

@@ -29,8 +29,8 @@
 timer = 0;
 curve = false;
 
-scrStopMusic();
-scrPlayMusic("Miku", false);    //song is "Hatsune Miku - Tho (ニナ)"
+music_stop();
+music_play("Miku", false);    //song is "Hatsune Miku - Tho (ニナ)"
 
 global.noPause = true;  //make it so that the player can't pause during the boss
 </string>
@@ -214,22 +214,22 @@ global.noPause = true;  //make it so that the player can't pause during the boss
         curve = true;
         if (timer mod 18 == 1)
         {
-            scrMakeCircle(random_range(0,800),0,random(360),12,choose(6,7,8),objCherryRandomCol);
+            spawn_circle(random_range(0,800),0,random(360),12,choose(6,7,8),objCherryRandomCol);
         }
     }
     else if (timer &gt; 2950 &amp;&amp; timer &lt; 3200)
     {
         if (timer mod 18 == 1)
         {
-            scrMakeCircle(800,random_range(0,608),random(360),12,choose(6,7,8),objCherryRandomCol);
+            spawn_circle(800,random_range(0,608),random(360),12,choose(6,7,8),objCherryRandomCol);
         }
     }
     else if (timer &gt; 3200 &amp;&amp; timer &lt; 3525)
     {
         if (timer mod 17 == 1)
         {
-            scrMakeCircle(random_range(0,800),0,random(360),12,choose(6,7,8),objCherryRandomCol);
-            scrMakeCircle(800,random_range(0,608),random(360),12,choose(6,7,8),objCherryRandomCol);
+            spawn_circle(random_range(0,800),0,random(360),12,choose(6,7,8),objCherryRandomCol);
+            spawn_circle(800,random_range(0,608),random(360),12,choose(6,7,8),objCherryRandomCol);
         }
     }
     else if (timer &gt; 3684 &amp;&amp; timer &lt; 3750)
@@ -242,7 +242,7 @@ global.noPause = true;  //make it so that the player can't pause during the boss
     }
     else if (timer == 3750)
     {
-        scrStopMusic();               //stop the music
+        music_stop();               //stop the music
         audio_play_sound(sndDeath,0,false);
         
         if (!global.bossItem[0])
@@ -280,7 +280,7 @@ global.noPause = true;  //make it so that the player can't pause during the boss
             <kind>1</kind>
             <string>///makes triangles
 
-scrMakeShapes(x,y,random(360),3,5,choose(6,7,8),objCherryRandomCol);
+spawn_shape(x,y,random(360),3,5,choose(6,7,8),objCherryRandomCol);
 </string>
           </argument>
         </arguments>
@@ -305,7 +305,7 @@ scrMakeShapes(x,y,random(360),3,5,choose(6,7,8),objCherryRandomCol);
             <kind>1</kind>
             <string>///makes squares
 
-scrMakeShapes(x,y,random(360),4,4,choose(6,7,8),objCherryRandomCol);
+spawn_shape(x,y,random(360),4,4,choose(6,7,8),objCherryRandomCol);
 </string>
           </argument>
         </arguments>

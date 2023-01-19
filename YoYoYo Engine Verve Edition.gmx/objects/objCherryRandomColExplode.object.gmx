@@ -58,7 +58,7 @@ alarm[0] = 17;  //set an alarm to make this explode
             <kind>1</kind>
             <string>//explode into a circle
 
-scrMakeCircle(x,y,random(360),12,choose(6,7,8),objCherryRandomCol);
+spawn_circle(x,y,random(360),12,choose(6,7,8),objCherryRandomCol);
 
 instance_destroy();
 </string>

@@ -7,7 +7,7 @@ var b = argument2;
 
 var length = abs(a - b) + 1;
 
-if (scrInRange(val, a, b)) return val;
+if (in_range(val, a, b)) return val;
 
 else if (val > max(a, b))
 {

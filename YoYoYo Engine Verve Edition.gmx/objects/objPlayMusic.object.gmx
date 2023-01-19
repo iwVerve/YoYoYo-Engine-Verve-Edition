@@ -52,7 +52,7 @@ roomSong = -2;
             <string>///Play room music
 if (roomSong != -2)
 {
-    scrPlayMusic(roomSong, true);
+    music_play(roomSong, true);
 }
 </string>
           </argument>

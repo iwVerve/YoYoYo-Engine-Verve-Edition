@@ -35,7 +35,7 @@ showResetPrompt = false;
 
 //Add two for the "Controller index" and "Reset controls" lines
 numberOfButtons = KEY.NUMBER + 2;
-buttonName = scrControls("getControllerNameArray");
+buttonName = input_define("getControllerNameArray");
 
 event_user(0);
 buttonName[numberOfButtons - 1] = "Reset Controls";
@@ -93,18 +93,18 @@ showResetPrompt = false;
             <string>if (!settingButton)
 {
     //Not currently rebinding a key, navigate options
-    if (scrButtonCheckPressed(KEY.MENU_BACK))
+    if (input_check_pressed(KEY.MENU_BACK))
     {
         //Save changes and go back
-        scrSaveConfig();
+        config_save();
         instance_create(x, y, objOptionsMenu);
         instance_destroy();
     }
     
-    if (scrButtonCheckPressed(KEY.MENU_OPTIONS))
+    if (input_check_pressed(KEY.MENU_OPTIONS))
     {
         //Save changes and go back
-        scrSaveConfig();
+        config_save();
         global.menuSelectPrev[1] = 0;
         if (!global.gameStarted)
         {
@@ -117,16 +117,16 @@ showResetPrompt = false;
         exit;
     }
     
-    var vInputPressed = scrButtonCheckPressed(KEY.MENU_DOWN) - scrButtonCheckPressed(KEY.MENU_UP);
+    var vInputPressed = input_check_pressed(KEY.MENU_DOWN) - input_check_pressed(KEY.MENU_UP);
     if (vInputPressed != 0)
     {
         //Move to next/previous option
         audio_play_sound(global.menuSound, 0, false);
         select += vInputPressed;
-        select = scrWrapInRange(select, 0, numberOfButtons - 1);
+        select = modwrap(select, 0, numberOfButtons);
     }
     
-    if (scrButtonCheckPressed(KEY.MENU_ACCEPT))
+    if (input_check_pressed(KEY.MENU_ACCEPT))
     {
         if (select != 0)
         {
@@ -139,7 +139,7 @@ showResetPrompt = false;
             else
             {
                 //Reset controls
-                scrControls("setControllerDefault");
+                input_define("setControllerDefault");
                 
                 showResetPrompt = true;
                 alarm[0] = 60;
@@ -147,18 +147,18 @@ showResetPrompt = false;
         }
     }
     
-    var hInputPressed = scrButtonCheckPressed(KEY.MENU_RIGHT) - scrButtonCheckPressed(KEY.MENU_LEFT);
+    var hInputPressed = input_check_pressed(KEY.MENU_RIGHT) - input_check_pressed(KEY.MENU_LEFT);
     if (hInputPressed != 0 &amp;&amp; select = 0)
     {   
         //Change controller index
         global.controllerIndex += hInputPressed;
-        global.controllerIndex = scrWrapInRange(global.controllerIndex, -1, 11);
+        global.controllerIndex = modwrap(global.controllerIndex, -1, 12);
     }
 }
 else
 {
     //Wait for new bind
-    var newButton = scrAnyControllerButton();
+    var newButton = input_any_controller_button();
     if (newButton != -1)
     {                                          
         //Bind new key
@@ -204,7 +204,7 @@ animationTime++;
 bindName[0] = string(global.controllerIndex);
 for (var i = 0; i &lt; numberOfButtons - 2; i++)
 {
-    bindName[i+1] = scrGetControllerBind(global.controls[i, 1]);
+    bindName[i+1] = input_get_button_name(global.controls[i, 1]);
 }
 </string>
           </argument>
@@ -228,7 +228,7 @@ for (var i = 0; i &lt; numberOfButtons - 2; i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(scrTernary(!global.gameStarted, c_black, c_white));
+            <string>draw_set_color(ternary(!global.gameStarted, c_black, c_white));
 draw_set_valign(fa_top);
 draw_set_font(fDefault24);
 
@@ -246,7 +246,7 @@ for(var i = 0; i &lt; numberOfButtons; i += 1)
     {
         bindText = "Controls reset!";
     }
-    scrDrawOption(buttonName[i], bindText);
+    menu_draw_option(buttonName[i], bindText);
     
     draw_sprite(sprPlayerIdle, animationTime/5, xMargin - 16, yStart + (yStep * select) + 21);
 }
@@ -270,12 +270,12 @@ if (global.controllerIndex != -1)
         controllerText += "None";
     }
     
-    scrDrawTextOutline(400, 48, controllerText, c_white, c_black);
+    draw_text_outline(400, 48, controllerText, c_white, c_black);
     
     draw_set_color(c_black);
 }
 
-scrDrawButtonInfo(false);
+menu_draw_menu_buttons(false);
 </string>
           </argument>
         </arguments>

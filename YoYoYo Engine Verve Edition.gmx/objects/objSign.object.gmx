@@ -52,7 +52,7 @@ showText = false;
             <kind>1</kind>
             <string>if (place_meeting(x, y, objPlayer))
 {
-    if (scrButtonCheckPressed(KEY.UP))
+    if (input_check_pressed(KEY.UP))
     {
         showText = true;
     }
@@ -93,7 +93,7 @@ if (showText)
     
     var yOffset = string_height(text);
     
-    scrDrawTextOutline(x + (sprite_width/2), y - yOffset, text, c_white, c_black);
+    draw_text_outline(x + (sprite_width/2), y - yOffset, text, c_white, c_black);
 }
 </string>
           </argument>
