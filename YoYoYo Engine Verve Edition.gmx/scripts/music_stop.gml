@@ -1,5 +1,5 @@
 ///music_stop()
-//Stops any music currently playing
+// Stops any music currently playing
 
 global.currentMusicID = -1;
 

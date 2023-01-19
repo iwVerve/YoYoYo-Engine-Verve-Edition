@@ -455,7 +455,7 @@ alarm[0] = 50;  //Pause music when it's done fading
 
 if (!instance_exists(objPlayMusic))
 {
-    music_get();
+    music_play_room_bgm();
 }
 
 room_speed = 50;

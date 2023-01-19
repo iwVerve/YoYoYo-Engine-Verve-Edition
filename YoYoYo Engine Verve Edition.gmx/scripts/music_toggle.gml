@@ -9,7 +9,7 @@ if (!global.muteMusic)
     {
         if (!instance_exists(objPlayMusic))  //Make sure the play music object isn't in the current room
         {
-            music_get();
+            music_play_room_bgm();
         }
         else    //objPlayMusic is in the room, use it to play music instead
         {

@@ -213,7 +213,8 @@
       <script>scripts\opt_controller.gml</script>
     </scripts>
     <scripts name="Music">
-      <script>scripts\music_get.gml</script>
+      <script>scripts\music_get_room_bgm.gml</script>
+      <script>scripts\music_play_room_bgm.gml</script>
       <script>scripts\music_play.gml</script>
       <script>scripts\music_stop.gml</script>
       <script>scripts\music_toggle.gml</script>
