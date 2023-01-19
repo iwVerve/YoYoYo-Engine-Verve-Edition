@@ -12,27 +12,6 @@ if (savePosition)
     global.saveMap[? "playerXScale"] = objPlayer.xScale;
     global.saveMap[? "grav"] = global.grav;
     
-    //Check for floored position shenanigans
-    with(objPlayer)
-    {
-        var px = global.saveMap[? "playerX"];
-        var py = global.saveMap[? "playerY"];
-        if (!place_free(floor(px), py))
-            { global.saveMap[? "playerX"] += 1; }
-            
-        if (!place_free(px, floor(py)))
-            { global.saveMap[? "playerY"] += 1; }
-            
-        if (!place_free(floor(px), floor(py)))
-        {
-            global.saveMap[? "playerX"] += 1;
-            global.saveMap[? "playerY"] += 1;
-        }                               
-    }
-    global.saveMap[? "playerX"] = floor(global.saveMap[? "playerX"]);
-    global.saveMap[? "playerY"] = floor(global.saveMap[? "playerY"]);
-    
-    
     for (var i = 0; i < global.secretItemTotal; i++)
     {
         global.saveMap[? "secretItem" + string(i)] = global.secretItem[i];
