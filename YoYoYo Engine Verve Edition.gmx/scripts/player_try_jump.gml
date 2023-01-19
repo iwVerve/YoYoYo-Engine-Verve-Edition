@@ -4,7 +4,7 @@ if (!place_free(x, y + global.grav) || onPlatform || place_meeting(x, y, objWate
 {
     player_ground_jump();
 }
-else if (djump == 1 || place_meeting(x, y + global.grav, objWater2) || global.infJump || global.debugInfJump)
+else if (airJumps > 0 || place_meeting(x, y + global.grav, objWater2) || global.infJump || global.debugInfJump)
 {
     player_air_jump();
 }

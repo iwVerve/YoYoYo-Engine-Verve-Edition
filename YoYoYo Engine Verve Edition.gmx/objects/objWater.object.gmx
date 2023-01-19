@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>with (objPlayer) 
 {
-    djump = 1;
+    airJumps = maxAirJumps;
     if ((vspeed * global.grav) &gt; 2)
     {
         vspeed = 2 * global.grav;

@@ -98,7 +98,8 @@
 {
     with (objPlayer)
     {
-        djump = 1;
+        airJumps += 1;
+        airJumps = min(airJumps, maxAirJumps);
     }
     
     visible = false;

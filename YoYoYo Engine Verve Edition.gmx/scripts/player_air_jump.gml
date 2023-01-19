@@ -5,8 +5,8 @@ sprite_index = sprPlayerJump;
 audio_play_sound(sndDJump, 0, false);
 
 if place_meeting(x, y + global.grav, objWater3) {
-    djump = 1;
+    airJumps = maxAirJumps;
 }
 else {
-    djump = 0;
+    airJumps -= 1;
 }

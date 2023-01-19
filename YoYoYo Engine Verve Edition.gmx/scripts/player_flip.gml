@@ -12,7 +12,7 @@ global.grav = -global.grav;
 //Flip the player
 with (objPlayer)
 {
-    djump = 1;
+    airJumps = maxAirJumps;
     vspeed = 0;
     
     jumpSpeed = abs(jumpSpeed) * global.grav;
