@@ -7,10 +7,10 @@ Locked triggers are also reintroduced as they were ommited in YoYoYo engine.
 
 objTriggerManager is the object taking care of all trigger behavior, with the individual options being defined in indi-
 vidual scripts in the Trigger scripts folder. You shouldn't ever need to place objTriggerManager, instead calling
-scrMakeTrigger() in an object's Creation code. You can pass the trigger id as an argument instead of specifying it later.
+make_trigger() in an object's Creation code. You can pass the trigger id as an argument instead of specifying it later.
 The script returns the id of the newly made objTriggerManager instance, meaning the intended use case would be something
 like:
-with(scrMakeTrigger("fall"))
+with(make_trigger("fall"))
 {
     ...
 }
@@ -22,10 +22,10 @@ this is by calling a trigger script. You can open each script for a detailed exp
 move the instance are special in that you can only use one at a time: You can't have an instance follow a path and have
 gravity, etc. Other than that, you can mix any of the other triggers together.
 For example:
-with(scrMakeTrigger("fall"))
+with(make_trigger("fall"))
 {
-    trgMove(0, 5); 
-    trgSound(sndCherry, 1);
+    trg_move(0, 5); 
+    trg_sound(sndCherry, 1);
 }
 
 If you assign a trigger to a moving object, it will work the same until it is triggered, when the objTriggerManager

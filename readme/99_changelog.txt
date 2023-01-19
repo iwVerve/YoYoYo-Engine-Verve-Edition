@@ -1,3 +1,5 @@
+After the move to GitHub this changelog is less necessary. Check the commit history instead!
+
 1.02 (2022/02/15) https://github.com/iwVerve/YoYoYo-Engine-Verve-Edition
 Remade trigger code into individual trigger scripts.
 Added rotate and script triggers.
