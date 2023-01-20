@@ -51,7 +51,7 @@ itemNum = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.bossItem[itemNum])  //destroy self if item has been obtained
+            <string>if savedata_get("bossItem" + string(itemNum)) //destroy self if item has been obtained
 {
     instance_destroy();
 }

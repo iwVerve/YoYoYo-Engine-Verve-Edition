@@ -245,7 +245,7 @@ global.noPause = true;  //make it so that the player can't pause during the boss
         music_stop();               //stop the music
         audio_play_sound(sndDeath,0,false);
         
-        if (!global.bossItem[0])
+        if !savedata_get("bossItem0")
         {
             //spawn boss item
             var a = instance_create(672,544,objBossItem);

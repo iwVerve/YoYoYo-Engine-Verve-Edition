@@ -34,7 +34,7 @@ itemNum = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="4">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -51,10 +51,7 @@ itemNum = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!global.bossItem[itemNum])  //destroy self if item has not been obtained
-{
-    instance_destroy();
-}
+            <string>visible = savedata_get("bossItem" + string(itemNum))  //hide if item has not been obtained
 </string>
           </argument>
         </arguments>

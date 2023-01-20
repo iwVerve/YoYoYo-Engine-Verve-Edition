@@ -1,49 +1,21 @@
-///savedata_save(saveposition)
-///saves the game
-///argument0 - sets whether the game should save the player's current location or just save the deaths/time
+///savedata_save(savePosition)
 
 var savePosition = argument0;
 
-if (savePosition)
-{
-    global.saveMap[? "room"] = room_get_name(room);
-    global.saveMap[? "playerX"] = objPlayer.x;
-    global.saveMap[? "playerY"] = objPlayer.y;
-    global.saveMap[? "playerXScale"] = objPlayer.xScale;
-    global.saveMap[? "grav"] = global.grav;
-    
-    for (var i = 0; i < global.secretItemTotal; i++)
-    {
-        global.saveMap[? "secretItem" + string(i)] = global.secretItem[i];
-    }
-    for (var i = 0; i < global.bossItemTotal; i++)
-    {
-        global.saveMap[? "bossItem" + string(i)] = global.bossItem[i];
-    }
-    
-    global.saveMap[? "gameClear"] = global.gameClear;
-    
-    //ADD NEW SAVED VALUES HERE
-    
+if savePosition && instance_exists(objPlayer) {
+    savedata_set("room", room_get_name(room));
+    savedata_set("playerX", objPlayer.x);
+    savedata_set("playerY", objPlayer.y);
+    savedata_set("playerXScale", objPlayer.xScale);
+    savedata_set("grav", global.grav);
+    savedata_set("difficulty", global.difficulty);
 }
-                     
-                              
-global.saveMap[? "death"] = global.death;
-global.saveMap[? "time"] = global.time;
-global.saveMap[? "timeMicro"] = global.timeMicro;
-global.saveMap[? "difficulty"] = global.difficulty;
 
-ds_map_delete(global.saveMap, "md5");
-global.saveMap[? "md5"] = md5_string_unicode( json_encode(global.saveMap) + global.md5StrAdd );  
+savedata_set("saved", true);
 
-//Save map to file
-if (global.extraSaveProtection)
-{
-    ds_map_secure_save(global.saveMap, "Data\save" + string(global.savenum));
-}
-else
-{
-    var file = file_text_open_write("Data\save" + string(global.savenum));
-    file_text_write_string(file, base64_encode(json_encode(global.saveMap)));
-    file_text_close(file);  
-}
+ds_map_delete(global.saveData, "md5");
+global.saveData[? "md5"] = md5_string_unicode(json_encode(global.saveData) + global.md5StrAdd);
+
+ds_map_copy(global.persistentSaveData, global.saveData);
+
+savedata_write();

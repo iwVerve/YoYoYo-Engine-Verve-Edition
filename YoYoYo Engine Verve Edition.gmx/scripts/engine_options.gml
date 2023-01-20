@@ -49,5 +49,4 @@ global.difficultyNames[3] = "Very Hard";
 global.difficultyNames[4] = "Impossible";
 
 //Savefiles
-global.extraSaveProtection = false; //Sets whether to use the ds_map_secure functions for saving/loading (improves save security and prevents transferring between PCs)
 global.md5StrAdd = "Put something here"; //sets what to add to the end of md5 input string to make the save harder to mess with, can be changed to anything, should be set to something unique and hard to predict (like setting a password)

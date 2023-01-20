@@ -42,79 +42,21 @@ xSeparation = 240;
 animationIndex = 0;
 
 //Load save file values
-for (var i = 0; i &lt; 3; i++)
-{
-    if (file_exists("Data\save" + string(i+1)))  //Check if current save exists
-    {
-        //Load save data
+for (var i = 0; i &lt; 3; i += 1) {
+    if savedata_exists(i + 1) {
+        global.savenum = i + 1;
+        savedata_read();
+        
         exists[i] = true;
-        
-        //Load the save map
-        var saveMap;
-        
-        if (global.extraSaveProtection) //Use ds_map_secure function
-        {
-            saveMap = ds_map_secure_load("Data\save" + string(i+1));
+        death[i] = savedata_get("death");
+        time[i] = savedata_get("time");
+        difficulty[i] = savedata_get("difficulty");
+        for (var j = 0; j &lt; 8; j += 1) {
+            boss[j, i] = savedata_get("bossItem" + string(j));
         }
-        else    //Use text file
-        {
-            var f = file_text_open_read("Data\save" + string(i+1));
-            saveMap = json_decode(base64_decode(file_text_read_string(f)));
-            file_text_close(f);
-        }
-        
-        if (saveMap != -1)  //Check if the save map loaded correctly
-        {
-            death[i] = saveMap[? "death"];
-            if (is_undefined(death[i])) //Check for undefined value in case the save was messed with or got corrupted
-            {
-                death[i] = 0;
-            }
-            
-            time[i] = saveMap[? "time"];
-            if (is_undefined(time[i]))
-            {
-                time[i] = 0;
-            }
-    
-            difficulty[i] = saveMap[? "difficulty"];
-            if (is_undefined(difficulty[i]))
-            {
-                difficulty[i] = 0;
-            }
-            
-            for (var j = 0; j &lt; 8; j++)
-            {
-                boss[j,i] = saveMap[? "bossItem" + string(j) + ""];
-                if (is_undefined(boss[j, i]))
-                {
-                    boss[j,i] = false;
-                }
-            }
-            
-            clear[i] = saveMap[? "gameClear"];
-            if (is_undefined(clear[i]))
-            {
-                clear[i] = false;
-            }
-            
-            ds_map_destroy(saveMap);
-        }
-        else
-        {
-            //Save map didn't load correctly, set the variables to the defaults
-            death[i] = 0;
-            time[i] = 0;
-            difficulty[i] = 0;
-            for (var j = 0; j &lt; 8; j++)
-            {
-                boss[j,i] = false;
-            }
-            clear[i] = false;
-        }
+        clear[i] = savedata_get("gameClear");
     }
-    else
-    {
+    else {
         exists[i] = false;
         death[i] = 0;
         time[i] = 0;

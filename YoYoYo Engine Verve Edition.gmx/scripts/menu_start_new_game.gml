@@ -5,7 +5,7 @@ var difficulty = argument0;
 global.gameStarted = true; //enables saving, restarting, etc.
 global.autosave = true;
 
-global.difficulty = difficulty;
+savedata_new_game(difficulty);
 
 if (file_exists("Data\save" + string(global.savenum)))
 {

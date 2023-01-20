@@ -179,10 +179,16 @@
     <scripts name="Save/Load">
       <script>scripts\config_save.gml</script>
       <script>scripts\config_load.gml</script>
+      <script>scripts\savedata_set.gml</script>
+      <script>scripts\savedata_set_persistent.gml</script>
+      <script>scripts\savedata_get.gml</script>
       <script>scripts\savedata_save.gml</script>
       <script>scripts\savedata_load.gml</script>
-      <script>scripts\savedata_validate.gml</script>
+      <script>scripts\savedata_write.gml</script>
+      <script>scripts\savedata_read.gml</script>
+      <script>scripts\savedata_new_game.gml</script>
       <script>scripts\savedata_exists.gml</script>
+      <script>scripts\savedata_validate.gml</script>
     </scripts>
     <scripts name="Menu">
       <script>scripts\menu_start_new_game.gml</script>

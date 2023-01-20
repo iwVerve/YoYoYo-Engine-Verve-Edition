@@ -11,27 +11,13 @@ global.debugShowHitbox = false; //Enables showing the player's hitbox (toggle wi
 global.roomCaptionLast = global.roomCaptionDef;
 window_set_caption(global.roomCaptionDef);
 
-global.saveMap = ds_map_create();
+global.persistentSaveData = ds_map_create();
+global.saveData = ds_map_create();
 global.musicMap = ds_map_create();
 
 global.savenum = 1;
-global.difficulty = 0;  //0 = medium, 1 = hard, 2 = very hard, 3 = impossible
-global.death = 0;
-global.time = 0;
-global.timeMicro = 0;
 global.grav = 1;
-
-for (var i = global.secretItemTotal - 1; i >= 0; i--)
-{
-    global.secretItem[i] = false;
-}
-
-for (var i = global.bossItemTotal - 1; i >= 0; i--)
-{
-    global.bossItem[i] = false;
-}
-
-global.gameClear = false;
+global.difficulty = 0;
 
 global.trigger = ds_map_create();
 

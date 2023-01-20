@@ -4,18 +4,14 @@
 ini_open("config.ini");
              
 global.muteMusic = ini_read_real("Settings", "Mute_music", false);
-
 global.volumeLevel = clamp(floor(ini_read_real("Settings", "Volume_level", 100)), 0, 100);
-audio_master_gain(global.volumeLevel/100);
-
 global.fullscreenMode = ini_read_real("Settings", "Fullscreen_mode", false);
-window_set_fullscreen(global.fullscreenMode);
-
 global.smoothingMode = ini_read_real("Settings", "Smoothing_mode", false);
-
 global.vsyncMode = ini_read_real("Settings", "Vsync_mode", false);
-if (global.vsyncMode)
-{
+
+audio_master_gain(global.volumeLevel/100);
+window_set_fullscreen(global.fullscreenMode);
+if (global.vsyncMode) {
     set_vsync();
 }
 
@@ -30,8 +26,7 @@ global.menuAcceptButton[0] = vk_shift;
 global.menuBackButton[0] = ord("Z");
 global.menuOptionsButton[0] = vk_enter;
 
-if (global.controllerEnabled)
-{                       
+if (global.controllerEnabled) {                       
     input_define("loadControllerConfig");
 }
 

@@ -49,7 +49,7 @@ itemNum = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.bossItem[itemNum])    //destroy self if item already obtained
+            <string>if savedata_get("bossItem" + string(itemNum)) //destroy self if item already obtained
 {
     instance_destroy();
 }
@@ -75,7 +75,7 @@ itemNum = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.bossItem[itemNum] = true;
+            <string>savedata_set("bossItem" + string(itemNum), true);
 audio_play_sound(sndBlockChange, 0, false);
 instance_destroy();
 </string>
