@@ -43,6 +43,7 @@
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\GMSched</extension>
+    <extension index="1">extensions\execute_shell_simple_ext</extension>
   </NewExtensions>
   <sounds name="sound">
     <sounds name="Sfx">
@@ -215,6 +216,7 @@
       <script>scripts\opt_fullscreen.gml</script>
       <script>scripts\opt_smoothing.gml</script>
       <script>scripts\opt_vsync.gml</script>
+      <script>scripts\opt_open_save_folder.gml</script>
       <script>scripts\opt_keyboard.gml</script>
       <script>scripts\opt_controller.gml</script>
     </scripts>
