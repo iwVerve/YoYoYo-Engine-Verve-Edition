@@ -1,5 +1,7 @@
 ///savedata_new_game(difficulty)
 
+// Sets the necessary variables for a new game.
+
 ds_map_clear(global.saveData);
 
 savedata_set("room", room_get_name(global.startRoom));

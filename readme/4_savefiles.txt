@@ -1,9 +1,8 @@
-Saving and loading file data works roughly the same as it did in YoYoYo, however the process has been simplified and
-hopefully cleaned up a bit, now you only have to add 1 line to save your variables and 1 to load it, halving the amount
-of steps needed previously. In scrSaveGame, add code at the bottom of the big if block, and in scrLoadGame add code
-near the very bottom, simply by following how the other variables are saved. The order of the lines doesn't matter much,
-and there are comments telling you where to put the code so the should be nothing to worry about.
+Working with savefiles has been remade pretty much entirely from how it was in YoYoYo. Generally, you no longer need to
+do any preparation to make a value saveable, no changes to scrSaveGame. Saved values are accessed with savedata_set()
+and savedata_get(). The remaining scripts are much less commonly used for niche needs.
 
-If you want to save a variable without actually saving the game, e.g. saving a secret item immediately after it's picked
-up, in the item object you would set both the global.secretItem[0] as well as global.saveMap[? "secretItem0"], and then
-call scrSaveGame(false). This will save the item even if the player restarts immediately.
+For example, if you wanted to make a cutscene that only plays once, you would first check for a savedata_get("seenCutscene").
+You don't need to worry whether the value exists - if it doesn't, 0 is returned. At the end of the cutscene, you would
+savedata_set("seenCutscene", true) to set the variable. Then, if the player saves, this value will stay saved. If you
+want the value to stay saved even if the player doesn't save, use savedata_set_persistent.

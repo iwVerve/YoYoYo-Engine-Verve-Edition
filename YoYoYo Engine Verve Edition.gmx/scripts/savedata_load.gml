@@ -1,5 +1,7 @@
 ///savedata_load(loadFile)
 
+// Loads the game. The argument specifies whether to load the savefile from disk first.
+
 var loadFile = argument0;
 if loadFile {
     savedata_read();
@@ -7,7 +9,6 @@ if loadFile {
     if !savedata_validate() {
         show_message("Save invalid!");
         restart_game();
-        return false;
     }
 }
 else {
