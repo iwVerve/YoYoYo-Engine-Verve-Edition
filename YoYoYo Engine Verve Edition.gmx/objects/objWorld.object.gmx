@@ -141,9 +141,12 @@ if (global.gameStarted)
         
         if ( (global.timeWhenDead || instance_exists(objPlayer)) &amp;&amp; !(!global.timeWhenCleared &amp;&amp; savedata_get("gameClear")) )    //Increment timer
         {
-            savedata_set("timeMicro", savedata_get("timeMicro") + delta_time);
-            savedata_set_persistent("time", savedata_get("time") + savedata_get("timeMicro") div 1000000);
-            savedata_set_persistent("timeMicro", savedata_get("timeMicro") mod 1000000);
+            var timeMicro = savedata_get("timeMicro") + delta_time;
+            var time = savedata_get("time") + timeMicro div 1000000;
+            timeMicro = timeMicro mod 1000000;
+            
+            savedata_set_persistent("time", time);
+            savedata_set_persistent("timeMicro", timeMicro);
         }
     }
     else    //Volume control
