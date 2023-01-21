@@ -9,6 +9,7 @@ if loadFile {
     if !savedata_validate() {
         show_message("Save invalid!");
         restart_game();
+        exit;
     }
 }
 else {

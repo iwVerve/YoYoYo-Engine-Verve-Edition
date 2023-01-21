@@ -17,7 +17,7 @@ if savePosition && instance_exists(objPlayer) {
 
 savedata_set("saved", true);
 
-ds_map_delete(global.saveData, "md5");
-global.saveData[? "md5"] = md5_string_unicode(json_encode(global.saveData) + global.md5StrAdd);
+ds_map_delete(global.persistentSaveData, "md5");
+global.persistentSaveData[? "md5"] = md5_string_unicode(json_encode(global.persistentSaveData) + global.md5StrAdd);
 
 savedata_write();

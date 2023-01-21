@@ -32,7 +32,7 @@ if (instance_exists(objPlayer) && (!global.noDeath && !global.debugNoDeath))
     
     if (global.gameStarted)
     {
-        savedata_set("death", savedata_get("death") + 1);
+        savedata_set_persistent("death", savedata_get("death") + 1);
         savedata_save(false); //save death/time
     }
 }
