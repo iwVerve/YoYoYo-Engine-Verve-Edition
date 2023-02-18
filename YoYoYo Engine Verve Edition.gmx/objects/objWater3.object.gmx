@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-objPlayer.airJumps = maxAirJumps;
+objPlayer.airJumps = objPlayer.maxAirJumps;
 </string>
           </argument>
         </arguments>
