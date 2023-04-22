@@ -9,4 +9,5 @@ if place_meeting(x, y + global.grav, objWater3) {
 }
 else {
     airJumps -= 1;
+    airJumps = max(airJumps, 0);
 }
