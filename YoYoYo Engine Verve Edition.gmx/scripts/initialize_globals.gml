@@ -68,3 +68,4 @@ global.triggers = ds_list_create();
 trigger_list();
 
 randomize();    //Make sure the game starts with a random seed for RNG
+

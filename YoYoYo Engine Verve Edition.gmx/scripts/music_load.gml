@@ -23,6 +23,7 @@ if (is_undefined(index))
     else
     {
         //.ogg file with requested name doesn't exist in the Music folder.
+        print("Failed to find ", filename);
         return -1;
     }
 }
