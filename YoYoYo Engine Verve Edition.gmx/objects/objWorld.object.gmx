@@ -229,78 +229,87 @@ else if (room == rDifficultySelect)    //Special case for restarting in difficul
             <kind>1</kind>
             <string>///Debug + update keys
 
-if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused)
-{
-    if (keyboard_check(vk_tab))    //Teleport to mouse
-    {
-        with (objPlayer)
-        {
-            if (place_free(mouse_x, mouse_y))
-            {
-                x = mouse_x;
-                y = mouse_y - vspeed;
+if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused) {
+    if global.debugKey == noone || keyboard_check(global.debugKey) {
+        
+        // Toggle debug overlay
+        if (keyboard_check_pressed(vk_backspace)) {
+            global.debugOverlay += 1;
+            global.debugOverlay %= 3;
+        }
+    
+        // Teleport to mouse
+        if (keyboard_check(vk_tab)) {
+            with (objPlayer) {
+                if (place_free(mouse_x, mouse_y)) {
+                    x = mouse_x;
+                    y = mouse_y - vspeed;
+                }
             }
         }
-    }
-    
-    if (keyboard_check_pressed(vk_backspace))    //Toggle debug overlay
-    {
-        global.debugOverlay = !global.debugOverlay;
-    }
-    
-    if (keyboard_check_pressed(vk_insert))    //Save game
-    {
-        with (objPlayer)
-        {
-            savedata_save(true);
-            var snd = audio_play_sound(sndItem, 0, false);
-            audio_sound_gain(snd, 0.5, 0);
-        }
-    }
-    
-    if (keyboard_check_pressed(vk_delete))    //Toggle showing the hitbox
-    {
-        global.debugShowHitbox = !global.debugShowHitbox;
-    }
-    
-    if (keyboard_check_pressed(vk_home))    //Toggle god mode
-    {
-        global.debugNoDeath = !global.debugNoDeath;
-    }
-    
-    if (keyboard_check_pressed(vk_end))    //Toggle infinite jump
-    {
-        global.debugInfJump = !global.debugInfJump;
-    }
-    
-    if (keyboard_check_pressed(vk_pageup) &amp;&amp; room != room_last)    //Go to next room
-    {        
-        global.noPause = false;
-        instance_destroy(objPlayer);
-        room_goto_next();
-    }
-    
-    if (keyboard_check_pressed(vk_pagedown) &amp;&amp; room != room_first)    //Go to previous room
-    {
-        global.noPause = false;
-        instance_destroy(objPlayer);
-        room_goto_previous();
-    }
-}
-
-if (global.debugVisuals)
-{
-    with (objPlayer)    //Player debug visuals
-    {
-        if (global.debugNoDeath)    //God mode -&gt; transparent player
-            { image_alpha = 0.7; }
-        else
-            { image_alpha = 1; }
         
-        if (global.debugInfJump)    //Inf jump -&gt; blue player
-            { image_blend = c_blue; }
-        else
-            { image_blend = c_white; }
+        // Save game
+        if (keyboard_check_pressed(vk_insert)) {
+            if instance_exists(objPlayer) {
+                savedata_save(true);
+                var snd = audio_play_sound(sndItem, 0, false);
+                audio_sound_gain(snd, 0.5, 0);
+            }
+        }
+        
+        // God mode
+        if (keyboard_check_pressed(vk_home)) {
+            global.debugNoDeath = !global.debugNoDeath;
+        }
+        
+        // Infinite jump
+        if (keyboard_check_pressed(vk_end)) {
+            global.debugInfJump = !global.debugInfJump;
+        }
+        
+        // Show player hitbox
+        if (keyboard_check_pressed(vk_delete)) {
+            global.debugShowHitbox = !global.debugShowHitbox;
+        }
+        
+        // Go to next room
+        if (keyboard_check_pressed(vk_pageup) &amp;&amp; room != room_last) {
+            global.noPause = false;
+            instance_destroy(objPlayer);
+            room_goto_next();
+        }
+    
+        // Go to previous room
+        if (keyboard_check_pressed(vk_pagedown) &amp;&amp; room != room_first) {
+            global.noPause = false;
+            instance_destroy(objPlayer);
+            room_goto_previous();
+        }
+        
+        // Go to room by name
+        if keyboard_check_pressed(ord("W")) {
+            var target_room_name = get_string("Enter room name", "");
+            var target_room_index = asset_get_index(target_room_name);
+            if target_room_index != -1 {
+                // asset_get_index checks for any asset, not just rooms. The next line tells apart the difference between
+                // the user entering objWorld and rInit, both of which have the same index 0.
+                if target_room_name == room_get_name(target_room_index) {
+                    room_goto(target_room_index);
+                }
+            }
+        }
+        
+        // Flip gravity
+        if keyboard_check_pressed(ord("G")) {
+            player_flip();
+        }
+        
+        // Show invisible objects
+        if keyboard_check_pressed(ord("I")) {
+            with(all) {
+                visible = true;
+            }
+        }
     }
 }
 
@@ -586,9 +595,64 @@ if (!global.gameStarted)
         draw_text_outline(34, 34, updateString, c_white, c_black);
     }
 }
-else if (global.debugOverlay)
-{
-    var drawX = 0, drawY = 0, drawAlign = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw debug overlay
+
+if global.gameStarted &amp;&amp; global.debugOverlay &gt; 0 {
+    var newLine = chr(13) + chr(10);
+    var debugText = "";
+
+    var playerX = "-", playerY = "-", playerAlign = "-";
+    if instance_exists(objPlayer) {
+        playerX = objPlayer.x;
+        playerY = objPlayer.y;
+        playerAlign = objPlayer.x % 3;
+    }
+    
+    debugText += string_concat("X: ", playerX, " [", playerAlign, "]", newLine);
+    debugText += string_concat("Y: ", playerY, newLine);
+    debugText += string_concat("Room: " + room_get_name(room), " (", room, ")", newLine);
+    debugText += string_concat("FPS: ", fps, ", Real FPS: ", fps_real, newLine);
+    
+    debugText += newLine;
+    if global.debugOverlay == 1 {
+        debugText += "Toggle again to show debug keys.";
+    }
+    else if global.debugOverlay == 2 {
+        debugText += string_concat("Hold ", input_get_key_name(global.debugKey), " to use debug keys", newLine);
+        debugText += "[Home] - God mode" + newLine;
+        debugText += "[End] - Infinite jump" + newLine;
+        debugText += "[Insert] - Save" + newLine;
+        debugText += "[Delete] - Show hitbox" + newLine;
+        debugText += "[PageUp] - Next room" + newLine;
+        debugText += "[PageDown] - Previous room" + newLine;
+        debugText += "[W] - Warp to room by name" + newLine;
+        debugText += "[G] - Flip gravity" + newLine;
+        debugText += "[I] - Show invisible objects" + newLine;
+    }
+    
+    draw_text_outline(16, 16, debugText, c_white, c_black);
+
+    /*var drawX = 0, drawY = 0, drawAlign = 0;
     if (instance_exists(objPlayer))
     {
         drawX = objPlayer.x;
@@ -604,7 +668,7 @@ else if (global.debugOverlay)
     draw_text_outline(20, 120, "God mode: "+string(global.debugNoDeath), c_black, c_white);
     draw_text_outline(20, 140, "Infinite jump: "+string(global.debugInfJump), c_black, c_white);
     draw_text_outline(20, 160, "FPS: "+string(fps), c_black, c_white);
-    draw_text_outline(20, 180, "Real FPS: "+string(fps_real), c_black, c_white);
+    draw_text_outline(20, 180, "Real FPS: "+string(fps_real), c_black, c_white);*/
 }
 </string>
           </argument>

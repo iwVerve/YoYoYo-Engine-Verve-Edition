@@ -3,7 +3,7 @@
 
 engine_options();
 
-global.debugOverlay = false;    //Enables showing the debug text overlay (shows player location, align, etc.)
+global.debugOverlay = 0;    // 0 - No overlay, 1 - Simple overlay, 2 - Advanced overlay (toggle with Backspace) 
 global.debugNoDeath = false;    //Enables god mode (toggle with Home key)
 global.debugInfJump = false;    //Enables infinite jump (toggle with End key)
 global.debugShowHitbox = false; //Enables showing the player's hitbox (toggle with Del key)

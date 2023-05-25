@@ -37,6 +37,7 @@ runSpeed = 3;   //Max horizontal speed
 maxVspeed = 9;  //Max vertical speed
 image_speed = 0.2;
 onPlatform = false;
+deathSoundCooldown = 0; //Used for god mode death indicator sound.
 
 xScale = 1;
 
@@ -336,6 +337,8 @@ if (global.adAlign &amp;&amp; !place_free(x, y + (global.grav)) &amp;&amp; !froz
     if (input_check_pressed(KEY.ALIGN_LEFT)) {hspeed -= 1;}
     if (input_check_pressed(KEY.ALIGN_RIGHT)) {hspeed += 1;}
 }
+
+deathSoundCooldown -= 1;
 </string>
           </argument>
         </arguments>
@@ -757,17 +760,36 @@ if (global.autosave) //Save the game if currently set to autosave
             <kind>1</kind>
             <string>/// Draw the player
 
+
+// Round the coordinates to avoid .5 align jittering
 var drawX = floor(x + 0.5);
 var drawY = floor(y + 0.5);
 
-if (global.grav == -1)      //Need to draw the player a pixel off in the y-axis when flipped for some reason
-    { drawY += 1; }
+// Need to draw the player a pixel off in the y-axis when flipped for some reason
+if (global.grav == -1) {
+    drawY += 1;
+}
 
-draw_sprite_ext(sprite_index, image_index, drawX, drawY, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
 
-//Draw the player's hitbox
-if (global.debugShowHitbox)
-    { draw_sprite_ext(mask_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha * 0.8); }
+// Setup debug drawing
+var drawAlpha = image_alpha;
+var drawColor = image_blend;
+
+if global.debugVisuals {
+    if global.debugNoDeath {
+        drawAlpha *= 0.7;
+    }
+    if global.debugInfJump {
+        drawColor = color_multiply(drawColor, c_blue);
+    }
+}
+
+draw_sprite_ext(sprite_index, image_index, drawX, drawY, image_xscale * xScale, image_yscale * global.grav, image_angle, drawColor, drawAlpha);
+
+// Draw the player's hitbox
+if (global.debugShowHitbox) {
+    draw_sprite_ext(mask_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha * 0.8);
+}
 </string>
           </argument>
         </arguments>

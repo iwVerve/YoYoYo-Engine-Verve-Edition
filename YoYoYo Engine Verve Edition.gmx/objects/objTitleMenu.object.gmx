@@ -59,8 +59,10 @@ if (global.debugMode)
     draw_set_font(fDefault24);
     draw_set_halign(fa_right);
     draw_set_valign(fa_top);
-    
     draw_text_outline(766, 34, "Debug mode", c_red, c_black);
+    
+    draw_set_font(fDefault12);
+    draw_text_outline(766, 72, string_concat("Hold ", input_get_key_name(global.debugKey), " to use debug keys"), c_red, c_black);
 }
 </string>
           </argument>
