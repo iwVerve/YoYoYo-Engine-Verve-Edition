@@ -13,6 +13,7 @@ if (!global.makingTrigger)
     {
         case "define":
             path = noone;
+            spd = 0;
             action = path_action_stop;
             absolute = true;
             position = 0;

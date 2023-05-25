@@ -665,7 +665,7 @@ if (global.grav == 1)    //Normal
     
     if (landedOnPlatform || (jumpedOut &amp;&amp; other.snap))
     {
-        var yy = other.y - (bbox_bottom - y) - 1;
+        var yy = other.bbox_top - (bbox_bottom - y) - 1;
         if (!global.platformsPhase)
         {
             move_contact_solid(90, y - yy); //Move against solid to not get snapped into a wall
@@ -688,7 +688,7 @@ else    //Flipped
     
     if (landedOnPlatform || (jumpedOut &amp;&amp; other.snap))
     {
-        var yy = other.y + other.sprite_height + (y - bbox_top);
+        var yy = other.bbox_bottom + (y - bbox_top) + 1;
         if (!global.platformsPhase)
         {
             move_contact_solid(270, yy - y);
