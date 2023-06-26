@@ -1,5 +1,6 @@
 ///spawn_shape(x, y, angle, edges, numprojectiles, speed, obj)
-//Spawns a custom shape
+
+// Spawns a custom shape made out of the provided object.
 
 var spawnX = argument0;
 var spawnY = argument1;

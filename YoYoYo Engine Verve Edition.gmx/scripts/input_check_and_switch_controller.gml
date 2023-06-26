@@ -1,5 +1,6 @@
 ///input_check_and_switch_controller()
-//Checks whether to switch between keyboard and controller, and handles the associated delay.
+
+// Checks whether to switch between keyboard and controller, and handles the associated delay.
 
 if (global.controllerEnabled && global.controllerIndex != -1)
 {

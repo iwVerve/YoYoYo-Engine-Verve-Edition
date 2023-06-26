@@ -1,5 +1,6 @@
 ///spawn_circle(x,y,angle,numprojectiles,speed,obj)
-//Spawns a ring of projectiles
+
+// Spawns a ring of projectiles.
 
 var spawnX = argument0;
 var spawnY = argument1;

@@ -1,5 +1,6 @@
 ///music_get_room_bgm()
-// Gets which song is supposed to be playing for the current room
+
+// Gets which song is supposed to be playing for the current room.
 
 switch (room)
 {

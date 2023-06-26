@@ -1,5 +1,7 @@
 ///input_define(type)
-//This script contains every hardcoded block of code you need to update in order to add a new configurable control key
+
+// This script contains every hardcoded block of code you need to update in order to add a new configurable control key.
+
 var type = argument0;
 
 enum KEY

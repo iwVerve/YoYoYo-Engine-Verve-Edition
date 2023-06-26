@@ -1,5 +1,7 @@
 ///print(str, ...)
 
+// Turns all provided arguments to a string, prints them to the debug console.
+
 var out = "";
 
 for (var i = 0; i < argument_count; i += 1) {

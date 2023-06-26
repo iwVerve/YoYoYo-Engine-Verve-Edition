@@ -1,5 +1,6 @@
 ///input_check_pressed(button)
-//Checks whether a button is being pressed this frame
+
+// Checks whether a button is being pressed this frame.
 
 var button = argument0;
 

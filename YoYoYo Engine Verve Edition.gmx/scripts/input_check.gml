@@ -1,5 +1,6 @@
 ///input_check(button)
-//Checks whether a button is currently being pressed
+
+// Checks whether a button is currently being pressed.
 
 var button = argument0;
 

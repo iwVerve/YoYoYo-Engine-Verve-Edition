@@ -1,5 +1,6 @@
 ///music_play(soundid, loops)
-// Plays a song if it's not already playing
+
+// Plays a song if it's not already playing.
 
 var songID = music_load(argument0); //song to play (-1 plays nothing and stops anything currently playing)
 var loopSong = argument1; //whether or not to loop the song

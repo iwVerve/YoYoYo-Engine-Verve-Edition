@@ -1,5 +1,6 @@
 ///input_check_released(button)
-//Checks whether a button is being released this frame
+
+// Checks whether a button is being released this frame.
 
 var button = argument0;
 

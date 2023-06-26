@@ -1,5 +1,6 @@
 ///music_toggle()
-// Toggles the music on and off
+
+// Toggles the music on and off.
 
 global.muteMusic = !global.muteMusic;
 

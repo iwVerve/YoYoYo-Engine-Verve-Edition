@@ -1,5 +1,7 @@
 ///do_dynamic_collision(setup, [crushed script], [arg])
 
+// Used by objects which need to be pushed around by dynamic blocks.
+
 var setup = argument[0]; //Call this script with setup = true in Create, and setup = false in End Step
 if (argument_count >= 2) var script = argument[1]; //Script to run when the instance is crushed at the end of collision
 if (argument_count >= 3) var arg = argument[2]; //Argument for crush script

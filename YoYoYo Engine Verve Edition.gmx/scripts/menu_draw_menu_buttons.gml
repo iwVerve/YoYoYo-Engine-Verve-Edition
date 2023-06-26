@@ -1,6 +1,7 @@
 ///menu_draw_menu_buttons(optionsText)
-// Draws the button control info for menus
-// argument0 - sets whether to draw the text for entering the options menu
+
+// Draws the button control info for menus.
+// argument0 - sets whether to draw the text for entering the options menu.
 
 var optionsText = argument0;
 

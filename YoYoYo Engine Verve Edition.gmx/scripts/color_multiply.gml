@@ -1,5 +1,7 @@
 ///color_multiply(color_a, color_b);
 
+// Multiplicatively blends the two provided colors.
+
 var color_a = argument0;
 var color_b = argument1;
 

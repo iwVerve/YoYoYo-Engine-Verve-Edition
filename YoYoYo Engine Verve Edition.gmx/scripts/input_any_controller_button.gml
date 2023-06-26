@@ -1,5 +1,6 @@
 ///input_any_controller_button()
-//Returns a gamepad button if one is being pressed (if multiple are pressed at the same time, will return whichever has a lower value), and -1 if none are pressed
+
+// Returns a gamepad button if one is being pressed (if multiple are pressed at the same time, will return whichever has a lower value), and -1 if none are pressed.
 
 var list;
 

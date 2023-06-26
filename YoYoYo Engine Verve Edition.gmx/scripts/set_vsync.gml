@@ -1,5 +1,6 @@
 ///set_vsync()
-// Sets vsync mode depending on the current setting
+
+// Sets vsync mode depending on the current setting.
 
 global.windowXPrev = window_get_x();
 global.windowYPrev = window_get_y();

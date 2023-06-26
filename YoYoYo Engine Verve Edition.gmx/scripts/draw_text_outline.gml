@@ -1,5 +1,6 @@
 ///draw_text_outline(x, y, string, textcolor, outlinecolor)
-//Draws any text with an outline
+
+// Draws any text with an outline.
 
 var textX = argument0;
 var textY = argument1;

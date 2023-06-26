@@ -1,4 +1,6 @@
 ///menu_draw_option(name, value)
+
+// Draws the option/value text, with its vertical position depending on the currentSlot variable.
                         
 if (argument_count >= 1)
 {

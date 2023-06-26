@@ -1,5 +1,6 @@
 ///input_get_key_name(key)
-//gets a string saying what the current keybind is
+
+// Returns the string form of the provided key bind.
 
 var keyIn = argument0; //Input key
 

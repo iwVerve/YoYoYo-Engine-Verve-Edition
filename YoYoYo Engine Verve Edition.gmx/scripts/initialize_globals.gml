@@ -1,5 +1,6 @@
 ///initialize_globals()
-// Initializes all global variables needed for the game
+
+// Initializes all global variables needed for the game.
 
 engine_options();
 

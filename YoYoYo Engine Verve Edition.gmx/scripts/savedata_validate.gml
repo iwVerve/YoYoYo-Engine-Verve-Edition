@@ -1,5 +1,7 @@
 ///savedata_validate()
 
+// Checks if the currently loaded save map passes several validity checks.
+
 if global.saveData == -1 {
     print("Save map failed to load properly");
     return false;

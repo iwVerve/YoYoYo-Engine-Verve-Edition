@@ -1,4 +1,5 @@
 ///check_and_pause()
+
 // Checks whether to (un)pause, does so.
 
 if (global.pauseDelay <= 0)    //Check if pause delay is active

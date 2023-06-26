@@ -1,5 +1,6 @@
 ///input_get_button_name(buttonIndex)
-///Gets a string representation of the button for a controller
+
+// Returns the string form of the button for a controller.
 
 var buttonIn = argument0; //Button constant
 

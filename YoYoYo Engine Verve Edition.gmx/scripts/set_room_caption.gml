@@ -1,5 +1,6 @@
 ///set_room_caption()
-// Sets the room caption
+
+// Sets the room caption to display death/time information.
 
 var roomCaption = global.roomCaptionDef;
 

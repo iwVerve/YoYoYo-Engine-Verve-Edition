@@ -1,5 +1,7 @@
 ///ease_value(val, type)
 
+// Eases the provided 0-1 value to a different 0-1 value.
+
 enum EASE {
     NONE,
     IN,

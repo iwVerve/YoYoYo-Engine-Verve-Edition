@@ -1,5 +1,6 @@
 ///player_kill()
-//kills the player
+
+// Kills the player.
 
 if instance_exists(objPlayer) && !global.noDeath
 {

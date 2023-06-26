@@ -1,5 +1,6 @@
 ///config_load()
-///Loads config settings, sets default config if it doesn't exist
+
+// Loads config settings, sets default config if it doesn't exist.
 
 ini_open("config.ini");
              

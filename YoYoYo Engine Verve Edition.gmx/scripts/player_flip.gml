@@ -1,6 +1,7 @@
 ///player_flip([target])
+
 // Flips the current gravity.
-// Can be provided a target gravity to only flip sometimes.
+// Can be provided a target gravity to only flip to a specific gravity.
 // (1 = flip to normal, -1 = flip to upside down)
 
 if argument_count == 1 && argument[0] == global.grav {

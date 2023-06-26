@@ -1,4 +1,5 @@
 ///music_load(name)
+
 //Loads a song from Included Files/Music/<name>.ogg if it hasn't been loaded previously.
 //Returns the sound index you can then pass into audio_play_sound() and such as usual.
 
