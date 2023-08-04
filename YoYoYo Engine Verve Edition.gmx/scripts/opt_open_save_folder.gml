@@ -17,7 +17,7 @@ switch(argument0)
         //Called every frame the option is selected
         if input_check_pressed(KEY.MENU_ACCEPT)
         {
-            execute_shell_simple(working_directory);
+            execute_shell_simple(game_save_id);
             audio_play_sound(global.menuSound, 0, false);
         }
         break;
